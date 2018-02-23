@@ -10,11 +10,12 @@ import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
 import { ChapterService } from './services/chapter.service';
-
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
