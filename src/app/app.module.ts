@@ -10,12 +10,12 @@ import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
 import { ChapterService } from './services/chapter.service';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SidebarModule } from './shared/sidebar/sidebar.module';
 
+import { ChapterListComponent } from './components/chapters/chapter-list/chapter-list.component';
 @NgModule({
   declarations: [
-    AppComponent,
-    SidebarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AppRoutingModule,
     VirtualScrollModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    SidebarModule
   ],
   providers: [ChapterService],
   bootstrap: [AppComponent]

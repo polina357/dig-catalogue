@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
-import { SidebarDirective } from './sidebar.directive';
 
 const modules = [
     MatButtonModule,
@@ -13,7 +12,6 @@ const modules = [
 
 @NgModule({
     imports: modules,
-    exports: modules,
-    declarations: [SidebarDirective],
+    exports: modules
 })
 export class MaterialModule { }

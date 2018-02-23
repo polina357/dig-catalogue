@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Chapter} from '../../../models/chapter.model';
 import { ChapterService } from '../../../services/chapter.service';
@@ -8,7 +8,7 @@ import { ChapterService } from '../../../services/chapter.service';
   templateUrl: './chapter-list.component.html',
   styleUrls: ['./chapter-list.component.css']
 })
-export class ChapterListComponent implements OnInit {
+export class ChapterListComponent implements OnInit, OnDestroy {
   chapters: Array<Chapter>;
 
   constructor(private chapterService: ChapterService, private router: Router, private route: ActivatedRoute) { }
@@ -17,6 +17,9 @@ export class ChapterListComponent implements OnInit {
     this.chapterService.getChapters().subscribe(result => {
       this.chapters = result;
     });
+    console.log('OnInit');
   }
-
+  ngOnDestroy() {
+    console.log('OnDesctoy');
+  }
 }
