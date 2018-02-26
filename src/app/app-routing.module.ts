@@ -10,8 +10,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'chapters',
-    component: AppComponent
-    // loadChildren: 'app/components/chapters/chapters.module#ChaptersModule'
+    loadChildren: 'app/components/chapters/chapters.module#ChaptersModule'
   },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
 ];

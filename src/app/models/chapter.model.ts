@@ -3,5 +3,5 @@ export class Chapter {
     key?: string;
     title: string;
     description: string;
-    subchapters: any;
+    // subchapters: any;
 }

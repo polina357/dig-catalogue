@@ -11,11 +11,7 @@ export class SubchapterResolve implements Resolve<Subchapter> {
   constructor(private service: SubchapterService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Subchapter> {
-    return this.service.getSubchapter(
-      {
-        chapterId: route.parent.params.chapterId,
-        id: route.params.subchapterId
-      });
+    return this.service.getSubchapter(route.params.subchapterId);
   }
 
 }

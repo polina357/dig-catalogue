@@ -14,12 +14,10 @@ export class ChapterListComponent implements OnInit, OnDestroy {
   constructor(private chapterService: ChapterService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.chapterService.getChapters().subscribe(result => {
-      this.chapters = result;
-    });
+    this.chapters = this.chapterService.getChapters();
     console.log('OnInit');
   }
   ngOnDestroy() {
-    console.log('OnDesctoy');
+    console.log('OnDestroy');
   }
 }

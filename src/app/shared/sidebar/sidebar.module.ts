@@ -4,22 +4,23 @@ import { SidebarDirective } from './sidebar.directive';
 import { SidebarComponent } from './sidebar.component';
 import { SidebarService } from './sidebar.service';
 import { ChapterListComponent } from '../../components/chapters/chapter-list/chapter-list.component';
+import { ChaptersModule } from '../../components/chapters/chapters.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ChaptersModule
   ],
   declarations: [
-    ChapterListComponent,
     SidebarComponent,
     SidebarDirective
   ],
   exports: [
     SidebarComponent
   ],
-  entryComponents: [
+/*   entryComponents: [
     ChapterListComponent
-  ],
+  ],  */
   providers: [
     SidebarService
   ]

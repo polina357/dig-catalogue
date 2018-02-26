@@ -15,6 +15,5 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.sidebarService.loadComponent(ChapterListComponent);
   }
 }

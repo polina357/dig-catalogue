@@ -11,7 +11,7 @@ export class ChapterResolve implements Resolve<Chapter> {
   constructor(private service: ChapterService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<Chapter> {
-    return this.service.getChapter({id: route.params.chapterId});
+    return this.service.getChapter(route.params.chapterId);
   }
 
 }
