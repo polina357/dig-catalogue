@@ -7,7 +7,7 @@ import { ChapterListComponent } from './chapter-list/chapter-list.component';
   selector: 'app-chapters',
   templateUrl: './chapters.component.html',
   styleUrls: ['./chapters.component.css'],
-  providers: [ ChapterService, SidebarService ]
+  providers: [ ChapterService ]
 })
 export class ChaptersComponent implements OnInit {
 

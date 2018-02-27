@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import 'rxjs/Rx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
@@ -13,6 +14,7 @@ import { ChapterService } from './services/chapter.service';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
 
 import { ChapterListComponent } from './components/chapters/chapter-list/chapter-list.component';
+import { SidebarService } from './shared/sidebar/sidebar.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +28,7 @@ import { ChapterListComponent } from './components/chapters/chapter-list/chapter
     MaterialModule,
     SidebarModule
   ],
-  providers: [ChapterService],
+  providers: [ChapterService, SidebarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

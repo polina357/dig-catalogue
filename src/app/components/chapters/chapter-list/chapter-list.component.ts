@@ -14,7 +14,9 @@ export class ChapterListComponent implements OnInit, OnDestroy {
   constructor(private chapterService: ChapterService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.chapters = this.chapterService.getChapters();
+    this.chapterService.getChapters().subscribe(result => {
+      this.chapters = result;
+    });
     console.log('OnInit');
   }
   ngOnDestroy() {

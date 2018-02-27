@@ -41,10 +41,10 @@ export class ChapterService {
   //   return this.http.get<Chapter>(this.configUrl + '/' + chapterParams.id);
   // }
   getChapters() {
-    return Observable.create(this.chapters);;
+    return Observable.of(this.chapters);
   }
 
   getChapter(id: string) {
-    return Observable.create(this.chapters.find(chapter => chapter.id === id));
+    return Observable.of(this.chapters.find(chapter => chapter.id === id));
   }
 }

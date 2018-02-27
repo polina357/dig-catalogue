@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ComponentFactoryResolver, AfterViewInit, 
 import { SidebarDirective } from './sidebar.directive';
 import { SidebarService } from '../sidebar/sidebar.service';
 import { Subscription } from 'rxjs/Subscription';
+import { ChapterListComponent } from '../../components/chapters/chapter-list/chapter-list.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,15 +21,17 @@ export class SidebarComponent implements AfterViewInit, OnDestroy, OnInit {
   }
   ngAfterViewInit() {
     this.sidebarSub = this.sidebarService.Sidebar$.subscribe(component => {
-      console.log(component);
-      this.removePrevious();
-      const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
-      console.log(componentFactory);
-      const viewContainerRef = this.sidebarHost.viewContainerRef;
-      this.previousComponent = viewContainerRef.createComponent(componentFactory);
+      this.loadComponent(component);
     });
   }
+  loadComponent(component) {
+    this.removePrevious();
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    const viewContainerRef = this.sidebarHost.viewContainerRef;
+    this.previousComponent = viewContainerRef.createComponent(componentFactory);
+  }
   ngOnDestroy() {
+    console.log('sidebar destroy');
     this.sidebarSub.unsubscribe();
   }
   private removePrevious() {
