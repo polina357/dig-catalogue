@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import 'rxjs/Rx';
-
 import { AppRoutingModule } from './app-routing.module';
-import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import 'rxjs/Rx';
+
+import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from './shared/material.module';
 
 import { AppComponent } from './app.component';
-import { ChapterService } from './services/chapter.service';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
-import { SubchapterService } from './services/subchapter.service';
+import { ChaptersModule } from './components/chapters/chapters.module';
+import { SubchaptersModule } from './components/subchapters/subchapters.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,10 @@ import { SubchapterService } from './services/subchapter.service';
     VirtualScrollModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SidebarModule
+    SidebarModule,
+    ChaptersModule,
+    SubchaptersModule
   ],
-  providers: [ChapterService, SubchapterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

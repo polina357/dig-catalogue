@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from '../../shared/material.module';
+
 import { ChaptersComponent } from './chapters.component';
 import { ChapterListComponent } from './chapter-list/chapter-list.component';
 import { ChapterItemComponent } from './chapter-item/chapter-item.component';
-import { SubchaptersModule } from '../subchapters/subchapters.module';
 import { ChapterResolve } from '../../services/resolvers/chapter.resolver';
 import { ChapterDetailComponent } from './chapter-detail/chapter-detail.component';
-import { RouterModule } from '@angular/router';
+import { ChapterService } from '../../services/chapter.service';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { RouterModule } from '@angular/router';
     ChapterDetailComponent
   ],
   providers: [
-    ChapterResolve
+    ChapterResolve,
+    ChapterService
   ],
   entryComponents: [
     ChapterListComponent

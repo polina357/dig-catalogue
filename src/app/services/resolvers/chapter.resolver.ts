@@ -13,5 +13,4 @@ export class ChapterResolve implements Resolve<Chapter> {
   resolve(route: ActivatedRouteSnapshot): Observable<Chapter> {
     return this.service.getChapter(route.params.chapterId);
   }
-
 }

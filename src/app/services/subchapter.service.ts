@@ -60,21 +60,13 @@ export class SubchapterService {
   ]
   constructor(private http: HttpClient) { }
 
-  configUrl = 'http://5a81796c2f37a900124ecc36.mockapi.io/chapters';
-
-  // getSubchapters(chapterParams: ChapterParams): Observable<Subchapter[]> {
-  //   return this.http.get<Subchapter[]>(this.configUrl + '/' + chapterParams.id + '/subchapters');
-  // }
-
-  // getSubchapter(subchapterParams: SubchapterParams): Observable<Subchapter> {
-  //   return this.http.get<Subchapter>(this.configUrl + '/' + subchapterParams.chapterId + '/subchapters/' + subchapterParams.id);
-  // }
-
   getSubchapters(chapterId: string) {
-    return Observable.create(() => { return this.subchapters.filter(subchapter => subchapter.chapterId === chapterId) });
+    return Observable.of(
+      this.subchapters.filter(subchapter => subchapter.chapterId === chapterId)
+    );
   }
 
   getSubchapter(id: string) {
-    return Observable.create(this.subchapters.find(subchapter => subchapter.id === id));
+    return Observable.of(this.subchapters.find(subchapter => subchapter.id === id));
   }
 }

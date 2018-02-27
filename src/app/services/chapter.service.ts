@@ -30,21 +30,12 @@ export class ChapterService {
     },
   ]
   constructor(private http: HttpClient) { }
-
-  // configUrl = 'http://5a81796c2f37a900124ecc36.mockapi.io/chapters';
-
-  // getChapters():Observable<Chapter[]> {
-  //   return this.http.get<Chapter[]>(this.configUrl);
-  // }
-
-  // getChapter(chapterParams : ChapterParams):Observable<Chapter> {
-  //   return this.http.get<Chapter>(this.configUrl + '/' + chapterParams.id);
-  // }
-  getChapters() {
+  
+  getChapters():Observable<Chapter[]> {
     return Observable.of(this.chapters);
   }
 
-  getChapter(id: string) {
+  getChapter(id: string):Observable<Chapter> {
     return Observable.of(this.chapters.find(chapter => chapter.id === id));
   }
 }

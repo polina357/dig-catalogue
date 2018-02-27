@@ -31,7 +31,6 @@ export class SidebarComponent implements AfterViewInit, OnDestroy, OnInit {
     this.previousComponent = viewContainerRef.createComponent(componentFactory);
   }
   ngOnDestroy() {
-    console.log('sidebar destroy');
     this.sidebarSub.unsubscribe();
   }
   private removePrevious() {

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from '../../shared/material.module';
+
 import { SubchaptersComponent } from './subchapters.component';
 import { SubchapterListComponent } from './subchapter-list/subchapter-list.component';
 import { SubchapterItemComponent } from './subchapter-item/subchapter-item.component';
@@ -14,7 +16,8 @@ import { SubchapterDetailComponent } from './subchapter-detail/subchapter-detail
   imports: [
     CommonModule,
     MaterialModule,
-    VirtualScrollModule
+    VirtualScrollModule,
+    RouterModule
   ],
   declarations: [
     SubchaptersComponent,

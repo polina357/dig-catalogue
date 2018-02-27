@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ChaptersComponent } from './components/chapters/chapters.component';
 import { ChapterDetailComponent } from './components/chapters/chapter-detail/chapter-detail.component';
 import { ChapterListComponent } from './components/chapters/chapter-list/chapter-list.component';
+import { ChapterResolve } from './services/resolvers/chapter.resolver';
 
 const appRoutes: Routes = [
   {
@@ -16,7 +17,13 @@ const appRoutes: Routes = [
     component: ChaptersComponent,
     children: [
       { path: '', component: ChapterListComponent },
-      { path: ':id', component: ChapterDetailComponent }
+      {
+        path: ':chapterId',
+        component: ChapterDetailComponent,
+        resolve: {
+          chapter: ChapterResolve
+        }
+      }
     ]
   },
   { path: '**', redirectTo: '/not-found', pathMatch: 'full' }
