@@ -4,6 +4,7 @@ import { SidebarDirective } from './sidebar.directive';
 import { SidebarComponent } from './sidebar.component';
 import { ChapterListComponent } from '../../components/chapters/chapter-list/chapter-list.component';
 import { ChaptersModule } from '../../components/chapters/chapters.module';
+import { SidebarService } from './sidebar.service';
 
 @NgModule({
   imports: [
@@ -17,8 +18,6 @@ import { ChaptersModule } from '../../components/chapters/chapters.module';
   exports: [
     SidebarComponent
   ],
-  entryComponents: [
-    ChapterListComponent
-  ]
+  providers: [ SidebarService ]
 })
 export class SidebarModule { }

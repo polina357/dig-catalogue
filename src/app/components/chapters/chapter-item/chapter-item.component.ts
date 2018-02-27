@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Chapter } from '../../../models/chapter.model';
 
 @Component({
@@ -6,12 +6,8 @@ import { Chapter } from '../../../models/chapter.model';
   templateUrl: './chapter-item.component.html',
   styleUrls: ['./chapter-item.component.css']
 })
-export class ChapterItemComponent implements OnInit {
+export class ChapterItemComponent  {
   @Input() chapter: Chapter;
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

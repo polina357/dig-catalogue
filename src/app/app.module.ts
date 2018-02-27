@@ -12,9 +12,8 @@ import { MaterialModule } from './shared/material.module';
 import { AppComponent } from './app.component';
 import { ChapterService } from './services/chapter.service';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
+import { SubchapterService } from './services/subchapter.service';
 
-import { ChapterListComponent } from './components/chapters/chapter-list/chapter-list.component';
-import { SidebarService } from './shared/sidebar/sidebar.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -28,7 +27,7 @@ import { SidebarService } from './shared/sidebar/sidebar.service';
     MaterialModule,
     SidebarModule
   ],
-  providers: [ChapterService, SidebarService],
+  providers: [ChapterService, SubchapterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
