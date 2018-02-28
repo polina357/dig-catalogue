@@ -5,6 +5,9 @@ import { ChaptersComponent } from './components/chapters/chapters.component';
 import { ChapterDetailComponent } from './components/chapters/chapter-detail/chapter-detail.component';
 import { ChapterListComponent } from './components/chapters/chapter-list/chapter-list.component';
 import { ChapterResolve } from './services/resolvers/chapter.resolver';
+import { SubchaptersComponent } from './components/subchapters/subchapters.component';
+import { SubchapterResolve } from './services/resolvers/subchapter.resolver';
+import { SubchapterDetailComponent } from './components/subchapters/subchapter-detail/subchapter-detail.component';
 
 const appRoutes: Routes = [
   {
@@ -16,13 +19,25 @@ const appRoutes: Routes = [
     path: 'chapters',
     component: ChaptersComponent,
     children: [
-      { path: '', component: ChapterListComponent },
       {
         path: ':chapterId',
-        component: ChapterDetailComponent,
         resolve: {
           chapter: ChapterResolve
-        }
+        },
+        component: ChapterDetailComponent
+      }
+    ]
+  },
+  {
+    path: 'subchapters',
+    component: SubchaptersComponent,
+    children: [
+      {
+        path: ':subchapterId',
+        resolve: {
+          subchapter: SubchapterResolve
+        },
+        component: SubchapterDetailComponent
       }
     ]
   },

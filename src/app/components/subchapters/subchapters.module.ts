@@ -33,6 +33,9 @@ import { SubchapterDetailComponent } from './subchapter-detail/subchapter-detail
   providers: [
     SubchapterService,
     SubchapterResolve
+  ],
+  entryComponents: [
+    SubchapterListComponent
   ]
 })
 export class SubchaptersModule { }

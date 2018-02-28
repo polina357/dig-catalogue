@@ -1,4 +1,4 @@
-<div [@slideInOutAnimation]='state'>
+<div [@slideInOutAnimation]="'in'">
   <virtual-scroll [items]="chapters" (update)="scrollItems = $event">
     <app-chapter-item *ngFor="let chapter of scrollItems" [chapter]="chapter">
     </app-chapter-item>

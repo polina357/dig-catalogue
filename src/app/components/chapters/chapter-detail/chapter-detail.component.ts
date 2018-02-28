@@ -16,10 +16,12 @@ export class ChapterDetailComponent implements OnInit {
   constructor(private subchapterService: SubchapterService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    console.log('detail init');
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.chapter = this.route.snapshot.data.chapter;
+        this.subchapterService.getSubchapters(this.chapter.id).subscribe(result => {
+          this.subchapters = result;
+        });
       }
     });
     this.chapter = this.route.snapshot.data.chapter;
@@ -28,4 +30,7 @@ export class ChapterDetailComponent implements OnInit {
     });
   }
 
+  chooseSubchapter(subchapter) {
+    this.router.navigate(['subchapters', subchapter.id]);
+  }
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Chapter } from '../../../models/chapter.model';
 import { ChapterService } from '../../../services/chapter.service';
 import { slideInOutAnimation } from '../../../shared/animation';
@@ -10,24 +9,19 @@ import { slideInOutAnimation } from '../../../shared/animation';
   styleUrls: ['./chapter-list.component.css'],
   animations: [slideInOutAnimation]
 })
-export class ChapterListComponent implements OnInit, OnDestroy, AfterContentInit {
+export class ChapterListComponent implements OnInit, OnDestroy {
   chapters: Array<Chapter>;
-  state: string;
 
-  constructor(private chapterService: ChapterService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private chapterService: ChapterService) { }
 
   ngOnInit() {
-    this.state = 'out';
     this.chapterService.getChapters().subscribe(result => {
       this.chapters = result;
     });
     console.log('OnInit');
   }
-  ngAfterContentInit() {
-    this.state = 'in';
-  }
+
   ngOnDestroy() {
     console.log('OnDestroy');
-    this.state = 'out';
   }
 }

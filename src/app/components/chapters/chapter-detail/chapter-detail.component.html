@@ -1,3 +1,5 @@
-<h2>Chapter details</h2>
-<h3>Subchapters: </h3>
-<p *ngFor="let subchapter of subchapters">{{ subchapter.id }}</p>
+<div>
+  <h2>Chapter details</h2>
+  <h3>Subchapters: </h3>
+  <p *ngFor="let subchapter of subchapters" (click)="chooseSubchapter(subchapter)">{{ subchapter.id }}</p>
+</div>
