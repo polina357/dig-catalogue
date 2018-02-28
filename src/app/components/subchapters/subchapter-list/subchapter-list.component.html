@@ -1,6 +1,6 @@
 <div [@slideInOutAnimation]="'in'">
-  <virtual-scroll [items]="chapters" (update)="scrollItems = $event">
-    <app-subchapter-item *ngFor="let subchapter of scrollItems">
+  <virtual-scroll [items]="subchapters" (update)="scrollItems = $event">
+    <app-subchapter-item *ngFor="let subchapter of scrollItems" [subchapter]="subchapter">
     </app-subchapter-item>
   </virtual-scroll>
 </div>

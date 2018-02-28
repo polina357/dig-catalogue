@@ -5,9 +5,9 @@ export const slideInOutAnimation =
     state('in', style({ transform: 'translateX(0)' })),
     transition('void => *', [
       style({ transform: 'translateX(-100%)' }),
-      animate(200)
+      animate(250)
     ]),
     transition('* => void', [
-      animate(200, style({ transform: 'translateX(100%)' }))
+      animate(250, style({ transform: 'translateX(100%)' }))
     ])
   ]); 

@@ -13,7 +13,9 @@ export class ChapterDetailComponent implements OnInit {
   subchapters: Array<Subchapter>;
   chapter: Chapter;
 
-  constructor(private subchapterService: SubchapterService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private subchapterService: SubchapterService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
     this.router.events.subscribe(event => {

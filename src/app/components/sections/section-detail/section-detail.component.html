@@ -1,3 +1,6 @@
-<p>
-  section-detail works!
-</p>
+<div>
+  <h2>Section details</h2>
+  <pre>{{ section | json }}</pre>
+  <h3>Sections: </h3>
+  <button class="btn" *ngFor="let range of ranges" (click)="chooseRange(range)">RangeId: {{ range.id }}</button>
+</div>

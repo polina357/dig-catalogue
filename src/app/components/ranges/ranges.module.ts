@@ -9,7 +9,6 @@ import { RangeListComponent } from './range-list/range-list.component';
 import { RangeItemComponent } from './range-item/range-item.component';
 import { RangeService } from '../../services/range.service';
 import { RangeResolve } from '../../services/resolvers/range.resolver';
-import { ItemListComponent } from './item-list/item-list.component';
 import { RangeDetailComponent } from './range-detail/range-detail.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { RangeDetailComponent } from './range-detail/range-detail.component';
     RangesComponent,
     RangeListComponent,
     RangeItemComponent,
-    ItemListComponent,
     RangeDetailComponent
   ],
   providers: [
