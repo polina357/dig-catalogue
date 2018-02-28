@@ -15,6 +15,7 @@ import { SectionDetailComponent } from './components/sections/section-detail/sec
 import { RangesComponent } from './components/ranges/ranges.component';
 import { RangeResolve } from './services/resolvers/range.resolver';
 import { RangeDetailComponent } from './components/ranges/range-detail/range-detail.component';
+import { ParentChapterResolver } from './services/resolvers/parent-chapter.resolver';
 
 const appRoutes: Routes = [
   {
@@ -38,11 +39,14 @@ const appRoutes: Routes = [
   {
     path: 'subchapters',
     component: SubchaptersComponent,
+    resolve: {
+      chapter: ParentChapterResolver
+    },
     children: [
       {
         path: ':subchapterId',
         resolve: {
-         // chapter: ChapterResolve,
+          // chapter: ParentChapterResolver,
           subchapter: SubchapterResolve
         },
         component: SubchapterDetailComponent

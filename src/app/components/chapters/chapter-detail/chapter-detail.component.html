@@ -1,5 +1,6 @@
 <div>
   <h2>Chapter details</h2>
+  <pre>{{ chapter | json }}</pre>
   <h3>Subchapters: </h3>
-  <p *ngFor="let subchapter of subchapters" (click)="chooseSubchapter(subchapter)">{{ subchapter.id }}</p>
+  <button class="btn" *ngFor="let subchapter of subchapters" (click)="chooseSubchapter(subchapter)">SubchapterId: {{ subchapter.id }}</button>
 </div>

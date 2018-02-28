@@ -11,6 +11,7 @@ import { SubchapterItemComponent } from './subchapter-item/subchapter-item.compo
 import { SubchapterService } from '../../services/subchapter.service';
 import { SubchapterResolve } from '../../services/resolvers/subchapter.resolver';
 import { SubchapterDetailComponent } from './subchapter-detail/subchapter-detail.component';
+import { ParentChapterResolver } from '../../services/resolvers/parent-chapter.resolver';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { SubchapterDetailComponent } from './subchapter-detail/subchapter-detail
   ],
   providers: [
     SubchapterService,
-    SubchapterResolve
+    SubchapterResolve,
+    ParentChapterResolver
   ],
   entryComponents: [
     SubchapterListComponent

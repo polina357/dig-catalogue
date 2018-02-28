@@ -1,3 +1,6 @@
-<p>
-  subchapter-detail works!
-</p>
+<div>
+  <h2>Subchapter details</h2>
+  <pre>{{ subchapter | json }}</pre>
+  <h3>Sections: </h3>
+  <button class="btn" *ngFor="let section of sections" (click)="chooseSection(section)">SectionId: {{ section.id }}</button>
+</div>
