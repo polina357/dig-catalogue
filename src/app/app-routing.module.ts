@@ -39,15 +39,12 @@ const appRoutes: Routes = [
   {
     path: 'subchapters',
     component: SubchaptersComponent,
-    resolve: {
-      chapter: ParentChapterResolver
-    },
     children: [
       {
         path: ':subchapterId',
         resolve: {
-          // chapter: ParentChapterResolver,
-          subchapter: SubchapterResolve
+          subchapter: SubchapterResolve,
+          chapter: ParentChapterResolver
         },
         component: SubchapterDetailComponent
       }

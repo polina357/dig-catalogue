@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Section } from '../../../models/section.model';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+
+import { Section } from '../../../models/section.model';
+import { slideInOutAnimation } from '../../../shared/animation';
 
 @Component({
   selector: 'app-section-list',
   templateUrl: './section-list.component.html',
-  styleUrls: ['./section-list.component.css']
+  styleUrls: ['./section-list.component.css'],
+  animations: [slideInOutAnimation]
 })
 export class SectionListComponent implements OnInit {
   subchapter: string;

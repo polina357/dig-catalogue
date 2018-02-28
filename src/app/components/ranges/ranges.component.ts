@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SidebarService } from '../../shared/sidebar/sidebar.service';
+import { RangeListComponent } from './range-list/range-list.component';
+
 @Component({
   selector: 'app-ranges',
   templateUrl: './ranges.component.html',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RangesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidebarService: SidebarService) { }
 
   ngOnInit() {
+    this.sidebarService.loadComponent(RangeListComponent);
   }
 
 }

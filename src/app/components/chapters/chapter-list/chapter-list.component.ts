@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Chapter } from '../../../models/chapter.model';
 import { ChapterService } from '../../../services/chapter.service';
 import { slideInOutAnimation } from '../../../shared/animation';

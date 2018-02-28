@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SidebarService } from '../../shared/sidebar/sidebar.service';
+import { SectionListComponent } from './section-list/section-list.component';
+
 @Component({
   selector: 'app-sections',
   templateUrl: './sections.component.html',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sidebarService: SidebarService) { }
 
   ngOnInit() {
+    this.sidebarService.loadComponent(SectionListComponent);
   }
 
 }

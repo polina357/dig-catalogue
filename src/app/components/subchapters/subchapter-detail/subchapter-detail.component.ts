@@ -19,7 +19,6 @@ export class SubchapterDetailComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot);
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.subchapter = this.route.snapshot.data.subchapter;
@@ -34,4 +33,7 @@ export class SubchapterDetailComponent implements OnInit {
     });
   }
 
+  chooseSection(section) {
+    this.router.navigate(['sections', section.id]);
+  }
 }

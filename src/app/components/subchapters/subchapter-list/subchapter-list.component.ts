@@ -33,6 +33,7 @@ export class SubchapterListComponent implements OnInit {
     })
     this.chapter = this.route.snapshot.data.chapter;
     console.log(this.route); */
+    console.log(this.route.snapshot);
     this.chapterService.getChapter('1').subscribe(result => {
       this.chapter = result;
     })

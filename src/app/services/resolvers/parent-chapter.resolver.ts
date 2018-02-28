@@ -11,11 +11,8 @@ export class ParentChapterResolver implements Resolve<Chapter> {
   constructor(private chapterService: ChapterService, private subchapterService: SubchapterService) { }
 
   resolve(route: ActivatedRouteSnapshot):Observable<Chapter> {
-    console.log(route);
-/*     let subchapter;
-    this.subchapterService.getSubchapter(route.params.subchapterId).subscribe(
-      result => subchapter = result
-    ); */
-    return this.chapterService.getChapter('1');
+    let subchapter;
+    this.subchapterService.getSubchapter(route.params.subchapterId).subscribe(result => subchapter = result);
+    return this.chapterService.getChapter(subchapter.chapterId);
   }
 }
