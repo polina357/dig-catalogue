@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from '../../shared/material.module';
@@ -15,7 +16,8 @@ import { RangeDetailComponent } from './range-detail/range-detail.component';
   imports: [
     CommonModule,
     MaterialModule,
-    VirtualScrollModule
+    VirtualScrollModule,
+    RouterModule
   ],
   declarations: [
     RangesComponent,
@@ -24,14 +26,12 @@ import { RangeDetailComponent } from './range-detail/range-detail.component';
     ItemListComponent,
     RangeDetailComponent
   ],
-  exports: [
-    RangesComponent,
-    RangeListComponent,
-    RangeItemComponent
-  ],
   providers: [
     RangeService,
     RangeResolve
+  ],
+  entryComponents: [
+    RangeListComponent
   ]
 })
 export class RangesModule { }

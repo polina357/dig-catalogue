@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from '../../shared/material.module';
@@ -15,7 +16,8 @@ import { SectionDetailComponent } from './section-detail/section-detail.componen
   imports: [
     CommonModule,
     MaterialModule,
-    VirtualScrollModule
+    VirtualScrollModule,
+    RouterModule
   ],
   declarations: [
     SectionsComponent,
@@ -23,14 +25,12 @@ import { SectionDetailComponent } from './section-detail/section-detail.componen
     SectionItemComponent,
     SectionDetailComponent
   ],
-  exports: [
-    SectionsComponent,
-    SectionListComponent,
-    SectionItemComponent
-  ],
   providers: [
     SectionService,
     SectionResolve
+  ],
+  entryComponents: [
+    SectionListComponent
   ]
 })
 export class SectionsModule { }

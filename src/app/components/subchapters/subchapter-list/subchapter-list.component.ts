@@ -28,7 +28,7 @@ export class SubchapterListComponent implements OnInit {
       }
     })
     this.chapter = this.route.snapshot.data.chapter;
-    console.log(this.route.snapshot.data);
+    console.log(this.route);
     this.subchapterService.getSubchapters(this.chapter.id).subscribe(result => {
       this.subchapters = result;
     });

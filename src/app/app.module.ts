@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
 import { ChaptersModule } from './components/chapters/chapters.module';
 import { SubchaptersModule } from './components/subchapters/subchapters.module';
+import { SectionsModule } from './components/sections/sections.module';
+import { RangesModule } from './components/ranges/ranges.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { SubchaptersModule } from './components/subchapters/subchapters.module';
     MaterialModule,
     SidebarModule,
     ChaptersModule,
-    SubchaptersModule
+    SubchaptersModule,
+    SectionsModule,
+    RangesModule
   ],
   bootstrap: [AppComponent]
 })

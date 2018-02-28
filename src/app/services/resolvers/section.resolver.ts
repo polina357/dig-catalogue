@@ -11,10 +11,6 @@ export class SectionResolve implements Resolve<Section> {
   constructor(private service: SectionService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Section> {
-    return this.service.getSection({
-      chapterId: route.parent.parent.parent.params.chapterId,
-      subchapterId: route.parent.params.subchapterId,
-      id: route.params.sectionId
-    });
+    return this.service.getSection(route.params.sectionId);
   }
 }

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Subchapter } from '../models/subchapter.model';
-import { ChapterParams } from '../models/chapter-params.interface';
-import { SubchapterParams } from '../models/subchapter-params.interface';
 
 @Injectable()
 export class SubchapterService {
@@ -58,15 +55,15 @@ export class SubchapterService {
       description: 'Description for the subchapter 4'
     }
   ]
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  getSubchapters(chapterId: string) {
+  getSubchapters(chapterId: string):Observable<Subchapter[]> {
     return Observable.of(
       this.subchapters.filter(subchapter => subchapter.chapterId === chapterId)
     );
   }
 
-  getSubchapter(id: string) {
+  getSubchapter(id: string):Observable<Subchapter> {
     return Observable.of(this.subchapters.find(subchapter => subchapter.id === id));
   }
 }

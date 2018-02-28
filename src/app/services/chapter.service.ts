@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { Chapter } from '../models/chapter.model';
-import { ChapterParams } from '../models/chapter-params.interface';
 
 @Injectable()
 export class ChapterService {
@@ -29,7 +27,7 @@ export class ChapterService {
       description: 'Description for the chapter 4'
     },
   ]
-  constructor(private http: HttpClient) { }
+  constructor() { }
   
   getChapters():Observable<Chapter[]> {
     return Observable.of(this.chapters);

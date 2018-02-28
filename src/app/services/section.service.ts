@@ -1,22 +1,75 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
-import { SubchapterParams } from '../models/subchapter-params.interface';
 import { Section } from '../models/section.model';
-import { SectionParams } from '../models/section-params.interface';
 
 @Injectable()
 export class SectionService {
-  constructor(private http: HttpClient) { }
+  sections = [
+    {
+      id: '1',
+      subchapterId: '1',
+      title: 'Section1',
+      description: 'Description for the section 1'
+    },
+    {
+      id: '2',
+      subchapterId: '2',
+      title: 'Section2',
+      description: 'Description for the section 2'
+    },
+    {
+      id: '3',
+      subchapterId: '3',
+      title: 'Section3',
+      description: 'Description for the section 3'
+    },
+    {
+      id: '4',
+      subchapterId: '4',
+      title: 'Section4',
+      description: 'Description for the section 4'
+    },
+    {
+      id: '5',
+      subchapterId: '5',
+      title: 'Section5',
+      description: 'Description for the section 5'
+    },
+    {
+      id: '6',
+      subchapterId: '6',
+      title: 'Section6',
+      description: 'Description for the section 6'
+    },
+    {
+      id: '7',
+      subchapterId: '7',
+      title: 'Section7',
+      description: 'Description for the section 7'
+    },
+    {
+      id: '8',
+      subchapterId: '8',
+      title: 'Section8',
+      description: 'Description for the section 8'
+    },
+    {
+      id: '9',
+      subchapterId: '8',
+      title: 'Section9',
+      description: 'Description for the section 9'
+    }
+  ]
+  constructor() { }
 
-  configUrl = 'http://5a81796c2f37a900124ecc36.mockapi.io/chapters';
-
-  getSections(subchapterParams: SubchapterParams): Observable<Section[]> {
-    return this.http.get<Section[]>(this.configUrl + '/' + subchapterParams.chapterId + '/subchapters/' + subchapterParams.id + '/sections');
+  getSections(subchapterId: string):Observable<Section[]> {
+    return Observable.of(
+      this.sections.filter(section => section.subchapterId === subchapterId)
+    );
   }
 
-  getSection(sectionParams: SectionParams): Observable<Section> {
-    return this.http.get<Section>(this.configUrl + '/' + sectionParams.chapterId + '/subchapters/' + sectionParams.subchapterId + '/sections/' + sectionParams.id);
+  getSection(id: string):Observable<Section> {
+    return Observable.of(this.sections.find(section => section.id === id));
   }
 }

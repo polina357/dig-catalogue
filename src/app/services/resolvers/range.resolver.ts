@@ -11,12 +11,6 @@ export class RangeResolve implements Resolve<RangeModel> {
   constructor(private service: RangeService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<RangeModel> {
-    return this.service.getRange({
-      chapterId: route.parent.parent.parent.parent.parent.params.chapterId,
-      subchapterId: route.parent.parent.parent.params.subchapterId,
-      sectionId: route.parent.params.sectionId,
-      id: route.params.rangeId
-    });
+    return this.service.getRange(route.params.rangeId);
   }
-
 }
