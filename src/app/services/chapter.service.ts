@@ -29,13 +29,9 @@ export class ChapterService {
     },
   ]
   constructor(private route: ActivatedRoute) { }
-
-  selectedChapter: Chapter;
-  
   getChapters():Observable<Chapter[]> {
     return Observable.of(this.chapters);
   }
-
   getChapter(id: string):Observable<Chapter> {
     return Observable.of(this.chapters.find(chapter => chapter.id === id));
   }

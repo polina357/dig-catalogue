@@ -25,14 +25,12 @@ export class SubchapterDetailComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.subchapter = this.route.snapshot.data.subchapter;
-        this.chapterService.selectedChapter = this.route.snapshot.data.chapter;
         this.sectionService.getSections(this.subchapter.id).subscribe(result => {
           this.sections = result;
         });
       }
     });
     this.subchapter = this.route.snapshot.data.subchapter;
-    this.chapterService.selectedChapter = this.route.snapshot.data.chapter;
     this.sectionService.getSections(this.subchapter.id).subscribe(result => {
       this.sections = result;
     });
