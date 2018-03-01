@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ComponentFactoryResolver, AfterViewInit, OnDestroy, EmbeddedViewRef } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+
 import { SidebarDirective } from './sidebar.directive';
 import { SidebarService } from '../sidebar/sidebar.service';
-import { Subscription } from 'rxjs/Subscription';
 import { ChapterListComponent } from '../../components/chapters/chapter-list/chapter-list.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { ChapterListComponent } from '../../components/chapters/chapter-list/cha
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements AfterViewInit, OnDestroy, OnInit {
+export class SidebarComponent implements AfterViewInit, OnDestroy {
   @ViewChild(SidebarDirective) sidebarHost: SidebarDirective;
   sidebarSub: Subscription;
   previousComponent;
@@ -17,8 +18,6 @@ export class SidebarComponent implements AfterViewInit, OnDestroy, OnInit {
     private sidebarService: SidebarService,
     private componentFactoryResolver: ComponentFactoryResolver
   ) { }
-  ngOnInit() {
-  }
   ngAfterViewInit() {
     this.sidebarSub = this.sidebarService.Sidebar$.subscribe(component => {
       this.loadComponent(component);
@@ -30,12 +29,12 @@ export class SidebarComponent implements AfterViewInit, OnDestroy, OnInit {
     const viewContainerRef = this.sidebarHost.viewContainerRef;
     this.previousComponent = viewContainerRef.createComponent(componentFactory);
   }
-  ngOnDestroy() {
-    this.sidebarSub.unsubscribe();
-  }
   private removePrevious() {
     if (this.previousComponent) {
       this.sidebarHost.viewContainerRef.clear();
     }
+  }
+  ngOnDestroy() {
+    this.sidebarSub.unsubscribe();
   }
 }

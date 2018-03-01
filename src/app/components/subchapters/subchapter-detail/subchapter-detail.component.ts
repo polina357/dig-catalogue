@@ -1,33 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { SectionService } from '../../../services/section.service';
 import { Subchapter } from '../../../models/subchapter.model';
 import { Section } from '../../../models/section.model';
+import { ChapterService } from '../../../services/chapter.service';
 
 @Component({
   selector: 'app-subchapter-detail',
   templateUrl: './subchapter-detail.component.html',
   styleUrls: ['./subchapter-detail.component.css']
 })
-export class SubchapterDetailComponent implements OnInit {
+export class SubchapterDetailComponent implements OnInit, OnDestroy {
   subchapter: Subchapter;
   sections: Array<Section>;
+  sub;
 
   constructor(private sectionService: SectionService,
+    private chapterService: ChapterService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
-    this.router.events.subscribe(event => {
+    this.sub = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.subchapter = this.route.snapshot.data.subchapter;
+        this.chapterService.selectedChapter = this.route.snapshot.data.chapter;
         this.sectionService.getSections(this.subchapter.id).subscribe(result => {
           this.sections = result;
         });
       }
     });
     this.subchapter = this.route.snapshot.data.subchapter;
+    this.chapterService.selectedChapter = this.route.snapshot.data.chapter;
     this.sectionService.getSections(this.subchapter.id).subscribe(result => {
       this.sections = result;
     });
@@ -35,5 +40,9 @@ export class SubchapterDetailComponent implements OnInit {
 
   chooseSection(section) {
     this.router.navigate(['sections', section.id]);
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

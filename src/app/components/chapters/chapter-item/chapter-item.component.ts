@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
 import { Chapter } from '../../../models/chapter.model';
+import { ChapterService } from '../../../services/chapter.service';
 
 @Component({
   selector: 'app-chapter-item',
@@ -9,5 +11,5 @@ import { Chapter } from '../../../models/chapter.model';
 export class ChapterItemComponent  {
   @Input() chapter: Chapter;
 
-  constructor() { }
+  constructor(private chapterService: ChapterService) { }
 }

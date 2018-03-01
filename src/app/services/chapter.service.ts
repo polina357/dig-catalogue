@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Chapter } from '../models/chapter.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
 export class ChapterService {
@@ -27,7 +28,9 @@ export class ChapterService {
       description: 'Description for the chapter 4'
     },
   ]
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
+
+  selectedChapter: Chapter;
   
   getChapters():Observable<Chapter[]> {
     return Observable.of(this.chapters);

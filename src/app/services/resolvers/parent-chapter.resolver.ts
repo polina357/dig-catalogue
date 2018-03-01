@@ -10,9 +10,12 @@ import { SubchapterService } from '../subchapter.service';
 export class ParentChapterResolver implements Resolve<Chapter> {
   constructor(private chapterService: ChapterService, private subchapterService: SubchapterService) { }
 
-  resolve(route: ActivatedRouteSnapshot):Observable<Chapter> {
-    let subchapter;
-    this.subchapterService.getSubchapter(route.params.subchapterId).subscribe(result => subchapter = result);
-    return this.chapterService.getChapter(subchapter.chapterId);
+  resolve(route: ActivatedRouteSnapshot): Observable<Chapter> {
+    let res = null;
+    this.subchapterService.getSubchapter(route.params.subchapterId).subscribe(result => {
+      let subchapter = result;
+      res = this.chapterService.getChapter(subchapter.chapterId);
+    });
+    return res;
   }
 }

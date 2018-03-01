@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Item } from '../models/item.model';
 
 @Injectable()
-export class SubchapterService {
+export class ItemService {
   items = [
     {
       id: '1',
