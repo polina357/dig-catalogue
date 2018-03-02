@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 import { Section } from '../../../models/section.model';
 import { slideInOutAnimation } from '../../../shared/animation';
+import { SectionService } from '../../../services/section.service';
 
 @Component({
   selector: 'app-section-list',
@@ -15,15 +16,11 @@ export class SectionListComponent implements OnInit {
   sections: Array<Section>;
 
   constructor(private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute, private sectionService: SectionService) { }
 
   ngOnInit() {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.subchapter = this.route.snapshot.data.subchapter;
-      }
+    this.sectionService.getAllSections().subscribe(result => {
+      this.sections = result;
     });
-
-    this.subchapter = this.route.snapshot.data.subchapter;
   }
 }

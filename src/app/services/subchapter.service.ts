@@ -57,13 +57,17 @@ export class SubchapterService {
   ]
   constructor() { }
 
-  getSubchapters(chapterId: string):Observable<Subchapter[]> {
+  getAllSubchapters() {
+    return Observable.of(this.subchapters);
+  }
+
+  getSubchapters(chapterId: string): Observable<Subchapter[]> {
     return Observable.of(
       this.subchapters.filter(subchapter => subchapter.chapterId === chapterId)
     );
   }
 
-  getSubchapter(id: string):Observable<Subchapter> {
+  getSubchapter(id: string): Observable<Subchapter> {
     return Observable.of(this.subchapters.find(subchapter => subchapter.id === id));
   }
 }

@@ -10,6 +10,7 @@ import { RangeItemComponent } from './range-item/range-item.component';
 import { RangeService } from '../../services/range.service';
 import { RangeResolve } from '../../services/resolvers/range.resolver';
 import { RangeDetailComponent } from './range-detail/range-detail.component';
+import { ItemService } from '../../services/item.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { RangeDetailComponent } from './range-detail/range-detail.component';
   ],
   providers: [
     RangeService,
-    RangeResolve
+    RangeResolve,
+    ItemService
   ],
   entryComponents: [
     RangeListComponent

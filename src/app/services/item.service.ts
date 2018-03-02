@@ -136,6 +136,10 @@ export class ItemService {
 
   constructor() { }
 
+  getAllItems() {
+    return Observable.of(this.items);
+  }
+
   getItems(rangeId: string): Observable<Item[]> {
     return Observable.of(
       this.items.filter(item => item.rangeId === rangeId)
