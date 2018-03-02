@@ -15,10 +15,12 @@ import { ChaptersModule } from './components/chapters/chapters.module';
 import { SubchaptersModule } from './components/subchapters/subchapters.module';
 import { SectionsModule } from './components/sections/sections.module';
 import { RangesModule } from './components/ranges/ranges.module';
+import { BasicComponent } from './components/basic/basic.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BasicComponent
   ],
   imports: [
     BrowserModule,

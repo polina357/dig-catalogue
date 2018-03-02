@@ -1,0 +1,7 @@
+mat-drawer {
+  min-width: 200px;
+}
+
+mat-drawer-content {
+  min-height: 100vh;
+}

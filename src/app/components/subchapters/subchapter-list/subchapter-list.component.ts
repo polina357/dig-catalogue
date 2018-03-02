@@ -22,6 +22,7 @@ export class SubchapterListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute) { }
   ngOnInit() {
+    console.log(this.route);
     this.chapter = this.route.snapshot.children[0].children[0].data.chapter ;
     this.subchapterService.getSubchapters(this.chapter.id).subscribe(result => {
       this.subchapters = result;

@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild, ComponentFactoryResolver, AfterViewInit, OnDestroy, EmbeddedViewRef } from '@angular/core';
+import { Component, ViewChild, ComponentFactoryResolver, AfterViewInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { SidebarDirective } from './sidebar.directive';
 import { SidebarService } from '../sidebar/sidebar.service';
-import { ChapterListComponent } from '../../components/chapters/chapter-list/chapter-list.component';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,11 +18,14 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
     private componentFactoryResolver: ComponentFactoryResolver
   ) { }
   ngAfterViewInit() {
+    console.log('init');
     this.sidebarSub = this.sidebarService.Sidebar$.subscribe(component => {
       this.loadComponent(component);
     });
+    console.log(this.sidebarSub);
   }
   loadComponent(component) {
+    console.log(component);
     this.removePrevious();
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
     const viewContainerRef = this.sidebarHost.viewContainerRef;

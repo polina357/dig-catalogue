@@ -16,6 +16,7 @@ import { RangesComponent } from './components/ranges/ranges.component';
 import { RangeResolve } from './services/resolvers/range.resolver';
 import { RangeDetailComponent } from './components/ranges/range-detail/range-detail.component';
 import { ParentChapterResolver } from './services/resolvers/parent-chapter.resolver';
+import { BasicComponent } from './components/basic/basic.component';
 
 const appRoutes: Routes = [
   {
@@ -25,54 +26,66 @@ const appRoutes: Routes = [
   },
   {
     path: 'chapters',
-    component: ChaptersComponent,
+    component: BasicComponent,
     children: [
       {
-        path: ':chapterId',
-        resolve: {
-          chapter: ChapterResolve
-        },
-        component: ChapterDetailComponent
-      }
-    ]
-  },
-  {
-    path: 'subchapters',
-    component: SubchaptersComponent,
-    children: [
-      {
-        path: ':subchapterId',
-        resolve: {
-          subchapter: SubchapterResolve,
-          chapter: ParentChapterResolver
-        },
-        component: SubchapterDetailComponent
-      }
-    ]
-  },
-  {
-    path: 'sections',
-    component: SectionsComponent,
-    children: [
-      {
-        path: ':sectionId',
-        resolve: {
-          section: SectionResolve
-        },
-        component: SectionDetailComponent
-      }
-    ]
-  },
-  {
-    path: 'ranges',
-    component: RangesComponent,
-    children: [
-      {
-        path: ':rangeId',
-        resolve: {
-          range: RangeResolve
-        },
-        component: RangeDetailComponent
+        path: '',
+        component: ChaptersComponent,
+        children: [
+          {
+            path: ':chapterId',
+            resolve: {
+              chapter: ChapterResolve
+            },
+            component: ChapterDetailComponent,
+            children: [
+              {
+                path: 'subchapters',
+                component: SubchaptersComponent,
+                children: [
+                  {
+                    path: ':subchapterId',
+                    resolve: {
+                      subchapter: SubchapterResolve,
+                      // chapter: ParentChapterResolver
+                    },
+                    component: SubchapterDetailComponent,
+                    children: [
+                      {
+                        path: 'sections',
+                        component: SectionsComponent,
+                        children: [
+                          {
+                            path: ':sectionId',
+                            resolve: {
+                              section: SectionResolve
+                            },
+                            component: SectionDetailComponent,
+                            children: [
+                              {
+                                path: 'ranges',
+                                component: RangesComponent,
+                                children: [
+                                  {
+                                    path: ':rangeId',
+                                    resolve: {
+                                      range: RangeResolve
+                                    },
+                                    component: RangeDetailComponent
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       }
     ]
   },

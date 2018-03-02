@@ -8,6 +8,8 @@ export class SidebarService {
     this.Sidebar$ = new Subject()
   }
   loadComponent(component) {
+    console.log(component);
     this.Sidebar$.next(component);
+    console.log(this.Sidebar$);
   }
 }
