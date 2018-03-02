@@ -19,9 +19,6 @@ export class RangeListComponent implements OnInit {
     private route: ActivatedRoute, private rangesService: RangeService) { }
 
   ngOnInit() {
-    this.rangesService.getAllRanges().subscribe(result => {
-      this.ranges = result;
-    })
   }
 
 }

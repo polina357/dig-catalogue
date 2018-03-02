@@ -8,7 +8,7 @@ import { RangesComponent } from './ranges.component';
 import { RangeListComponent } from './range-list/range-list.component';
 import { RangeItemComponent } from './range-item/range-item.component';
 import { RangeService } from '../../services/range.service';
-import { RangeResolve } from '../../services/resolvers/range.resolver';
+import { RangeResolve, RangesResolve } from '../../services/resolvers/range.resolver';
 import { RangeDetailComponent } from './range-detail/range-detail.component';
 import { ItemService } from '../../services/item.service';
 
@@ -26,8 +26,9 @@ import { ItemService } from '../../services/item.service';
     RangeDetailComponent
   ],
   providers: [
-    RangeService,
     RangeResolve,
+    RangesResolve,
+    RangeService,
     ItemService
   ],
   entryComponents: [

@@ -1,5 +1,5 @@
 <div [@slideInOutAnimation]="'in'">
-  <virtual-scroll [items]="chapters" (update)="scrollItems = $event">
+  <virtual-scroll [items]="data.chapters" (update)="scrollItems = $event" class="list-group list-group-flush">
     <app-chapter-item *ngFor="let chapter of scrollItems" [chapter]="chapter">
     </app-chapter-item>
   </virtual-scroll>

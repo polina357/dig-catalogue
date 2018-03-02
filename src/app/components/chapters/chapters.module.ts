@@ -8,7 +8,7 @@ import { MaterialModule } from '../../shared/material.module';
 import { ChaptersComponent } from './chapters.component';
 import { ChapterListComponent } from './chapter-list/chapter-list.component';
 import { ChapterItemComponent } from './chapter-item/chapter-item.component';
-import { ChapterResolve } from '../../services/resolvers/chapter.resolver';
+import { ChapterResolve, ChaptersResolve } from '../../services/resolvers/chapter.resolver';
 import { ChapterDetailComponent } from './chapter-detail/chapter-detail.component';
 import { ChapterService } from '../../services/chapter.service';
 
@@ -27,6 +27,7 @@ import { ChapterService } from '../../services/chapter.service';
   ],
   providers: [
     ChapterResolve,
+    ChaptersResolve,
     ChapterService
   ],
   entryComponents: [

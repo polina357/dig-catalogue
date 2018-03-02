@@ -14,3 +14,12 @@ export class SectionResolve implements Resolve<Section> {
     return this.service.getSection(route.params.sectionId);
   }
 }
+@Injectable()
+export class SectionsResolve implements Resolve<Section[]> {
+
+  constructor(private service: SectionService) { }
+
+  resolve(route: ActivatedRouteSnapshot): Observable<Section[]> {
+    return this.service.getAllSections();
+  }
+}

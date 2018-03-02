@@ -3,4 +3,5 @@ export class RangeModel {
   sectionId: string;
   title: string;
   description: string;
+  items?: Array<string> = [];
 }

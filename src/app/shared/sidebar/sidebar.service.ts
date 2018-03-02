@@ -7,7 +7,7 @@ export class SidebarService {
   constructor() {
     this.Sidebar$ = new Subject()
   }
-  loadComponent(component) {
-    this.Sidebar$.next(component);
+  loadComponent(params) {
+    this.Sidebar$.next(params);
   }
 }

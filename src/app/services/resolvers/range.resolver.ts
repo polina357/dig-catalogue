@@ -14,3 +14,12 @@ export class RangeResolve implements Resolve<RangeModel> {
     return this.service.getRange(route.params.rangeId);
   }
 }
+@Injectable()
+export class RangesResolve implements Resolve<RangeModel[]> {
+
+  constructor(private service: RangeService) { }
+
+  resolve(route: ActivatedRouteSnapshot): Observable<RangeModel[]> {
+    return this.service.getAllRanges();
+  }
+}

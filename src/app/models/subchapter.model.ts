@@ -3,4 +3,5 @@ export class Subchapter {
   chapterId: string;
   title: string;
   description: string;
+  sections?: Array<string> = [];
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from '../../shared/sidebar/sidebar.service';
 import { ChapterListComponent } from './chapter-list/chapter-list.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chapters',
@@ -9,8 +10,9 @@ import { ChapterListComponent } from './chapter-list/chapter-list.component';
 })
 export class ChaptersComponent implements OnInit {
 
-  constructor(private sidebarService: SidebarService) { }
+  constructor(private sidebarService: SidebarService,
+    private route: ActivatedRoute) { }
   ngOnInit() {
-    this.sidebarService.loadComponent(ChapterListComponent);
+    this.sidebarService.loadComponent({component: ChapterListComponent, data: this.route.snapshot.data});
   }
 }

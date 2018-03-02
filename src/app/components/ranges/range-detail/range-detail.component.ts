@@ -29,7 +29,6 @@ export class RangeDetailComponent implements OnInit, OnDestroy {
       }
     });
     this.range = this.route.snapshot.data.range;
-    console.log(this.route.snapshot);
     this.itemService.getItems(this.range.id).subscribe(result => {
       this.items = result;
     });

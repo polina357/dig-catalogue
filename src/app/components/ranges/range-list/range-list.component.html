@@ -1,6 +1,10 @@
 <div [@slideInOutAnimation]="'in'">
-  <virtual-scroll [items]="ranges" (update)="scrollItems = $event">
-    <app-range-item *ngFor="let range of scrollItems" [range]="range">
-    </app-range-item>
+  <virtual-scroll [items]="data" (update)="scrollItems = $event" class="list-group list-group-flush">
+    <ng-container *ngFor="let section of scrollItems">
+      <h5>{{ section.title }}</h5>
+      <app-range-item *ngFor="let range of section.ranges" [range]="range">
+      </app-range-item>
+      <hr>
+    </ng-container>
   </virtual-scroll>
 </div>

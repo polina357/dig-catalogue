@@ -29,7 +29,6 @@ export class SectionDetailComponent implements OnInit, OnDestroy {
       }
     });
     this.section = this.route.snapshot.data.section;
-    console.log(this.route.snapshot);
     this.rangeService.getRanges(this.section.id).subscribe(result => {
       this.ranges = result;
     });

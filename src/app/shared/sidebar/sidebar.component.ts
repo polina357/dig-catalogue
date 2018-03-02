@@ -19,15 +19,16 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
     private componentFactoryResolver: ComponentFactoryResolver
   ) { }
   ngAfterViewInit() {
-    this.sidebarSub = this.sidebarService.Sidebar$.subscribe(component => {
-      this.loadComponent(component);
+    this.sidebarSub = this.sidebarService.Sidebar$.subscribe(params => {
+      this.loadComponent(params);
     });
   }
-  loadComponent(component) {
+  loadComponent(params) {
     this.removePrevious();
-    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(params.component);
     const viewContainerRef = this.sidebarHost.viewContainerRef;
     this.previousComponent = viewContainerRef.createComponent(componentFactory);
+    this.previousComponent.instance.data = params.data;
   }
   private removePrevious() {
     if (this.previousComponent) {

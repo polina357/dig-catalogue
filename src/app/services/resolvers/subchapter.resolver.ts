@@ -15,3 +15,13 @@ export class SubchapterResolve implements Resolve<Subchapter> {
   }
 
 }
+@Injectable()
+export class SubchaptersResolve implements Resolve<Subchapter[]> {
+
+  constructor(private service: SubchapterService) { }
+
+  resolve(route: ActivatedRouteSnapshot): Observable<Subchapter[]> {
+    return this.service.getAllSubchapters();
+  }
+
+}

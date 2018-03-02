@@ -9,7 +9,7 @@ import { SectionsComponent } from './sections.component';
 import { SectionListComponent } from './section-list/section-list.component';
 import { SectionItemComponent } from './section-item/section-item.component';
 import { SectionService } from '../../services/section.service';
-import { SectionResolve } from '../../services/resolvers/section.resolver';
+import { SectionResolve, SectionsResolve } from '../../services/resolvers/section.resolver';
 import { SectionDetailComponent } from './section-detail/section-detail.component';
 
 @NgModule({
@@ -26,8 +26,9 @@ import { SectionDetailComponent } from './section-detail/section-detail.componen
     SectionDetailComponent
   ],
   providers: [
-    SectionService,
-    SectionResolve
+    SectionResolve,
+    SectionsResolve,
+    SectionService
   ],
   entryComponents: [
     SectionListComponent

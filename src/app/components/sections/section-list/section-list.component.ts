@@ -19,8 +19,5 @@ export class SectionListComponent implements OnInit {
     private route: ActivatedRoute, private sectionService: SectionService) { }
 
   ngOnInit() {
-    this.sectionService.getAllSections().subscribe(result => {
-      this.sections = result;
-    });
   }
 }

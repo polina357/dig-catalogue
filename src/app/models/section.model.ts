@@ -3,4 +3,5 @@ export class Section {
   subchapterId: string;
   title: string;
   description: string;
+  ranges?: Array<string> = [];
 }

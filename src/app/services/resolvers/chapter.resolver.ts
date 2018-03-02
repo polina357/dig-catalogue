@@ -14,3 +14,12 @@ export class ChapterResolve implements Resolve<Chapter> {
     return this.service.getChapter(route.params.chapterId);
   }
 }
+@Injectable()
+export class ChaptersResolve implements Resolve<Chapter[]> {
+
+  constructor(private service: ChapterService) {}
+
+  resolve(route: ActivatedRouteSnapshot): Observable<Chapter[]> {
+    return this.service.getChapters();
+  }
+}
