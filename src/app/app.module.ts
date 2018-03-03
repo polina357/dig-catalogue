@@ -15,10 +15,12 @@ import { ChaptersModule } from './components/chapters/chapters.module';
 import { SubchaptersModule } from './components/subchapters/subchapters.module';
 import { SectionsModule } from './components/sections/sections.module';
 import { RangesModule } from './components/ranges/ranges.module';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

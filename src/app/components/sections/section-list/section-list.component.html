@@ -1,5 +1,5 @@
-<div [@slideInOutAnimation]="'in'">
-  <virtual-scroll [items]="data" (update)="scrollItems = $event" class="list-group list-group-flush">
+<div [@slideInOutAnimation]>
+  <virtual-scroll [items]="data" [childWidth]="200" [childHeight]="135" [bufferAmount]="1" (update)="scrollItems = $event" class="list-group list-group-flush">
     <ng-container *ngFor="let subchapter of scrollItems">
       <h5>{{ subchapter.title }}</h5>
       <app-section-item *ngFor="let section of subchapter.sections" [section]="section">

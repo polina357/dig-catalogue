@@ -97,13 +97,14 @@ export class RangeService {
     return Observable.of(this.ranges);
   }
 
-  getRanges(sectionId: string): Observable<RangeModel[]> {
+  getRangesBySectionId(sectionId: string): Observable<RangeModel[]> {
     return Observable.of(
       this.ranges.filter(range => range.sectionId === sectionId)
     );
   }
 
   getRange(id: string): Observable<RangeModel> {
-    return Observable.of(this.ranges.find(range => range.id === id));
+    return Observable.of(this.ranges.find(range => range.id === id))
+      .delay(1500);
   }
 }

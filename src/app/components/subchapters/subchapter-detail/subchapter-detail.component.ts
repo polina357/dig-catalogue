@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { SectionService } from '../../../services/section.service';
 import { Subchapter } from '../../../models/subchapter.model';
@@ -14,7 +15,7 @@ import { ChapterService } from '../../../services/chapter.service';
 export class SubchapterDetailComponent implements OnInit, OnDestroy {
   subchapter: Subchapter;
   sections: Array<Section>;
-  sub;
+  sub: Subscription;
 
   constructor(private sectionService: SectionService,
     private chapterService: ChapterService,
@@ -25,13 +26,13 @@ export class SubchapterDetailComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.subchapter = this.route.snapshot.data.subchapter;
-        this.sectionService.getSections(this.subchapter.id).subscribe(result => {
+        this.sectionService.getSectionsBySubchapterId(this.subchapter.id).subscribe(result => {
           this.sections = result;
         });
       }
     });
     this.subchapter = this.route.snapshot.data.subchapter;
-    this.sectionService.getSections(this.subchapter.id).subscribe(result => {
+    this.sectionService.getSectionsBySubchapterId(this.subchapter.id).subscribe(result => {
       this.sections = result;
     });
   }

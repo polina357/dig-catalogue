@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Item } from '../../../models/item.model';
 import { ItemService } from '../../../services/item.service';
@@ -13,7 +14,7 @@ import { RangeModel } from '../../../models/range.model';
 export class RangeDetailComponent implements OnInit, OnDestroy {
   range: RangeModel;
   items: Array<Item>;
-  sub;
+  sub: Subscription;
 
   constructor(private itemService: ItemService,
     private route: ActivatedRoute,

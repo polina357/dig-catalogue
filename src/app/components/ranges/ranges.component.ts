@@ -15,8 +15,8 @@ export class RangesComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let sections = this.route.snapshot.data.sections;
-    let ranges = this.route.snapshot.data.ranges;
+    let sections = this.route.snapshot.data.sections.map(x => Object.assign({}, x));
+    let ranges = this.route.snapshot.data.ranges.map(x => Object.assign({}, x));
     sections.map(section => {
       section.ranges = ranges.filter(range => range.sectionId === section.id);
     });

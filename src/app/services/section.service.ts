@@ -67,13 +67,14 @@ export class SectionService {
     return Observable.of(this.sections);
   }
 
-  getSections(subchapterId: string): Observable<Section[]> {
+  getSectionsBySubchapterId(subchapterId: string): Observable<Section[]> {
     return Observable.of(
       this.sections.filter(section => section.subchapterId === subchapterId)
     );
   }
 
   getSection(id: string): Observable<Section> {
-    return Observable.of(this.sections.find(section => section.id === id));
+    return Observable.of(this.sections.find(section => section.id === id))
+      .delay(1500);
   }
 }

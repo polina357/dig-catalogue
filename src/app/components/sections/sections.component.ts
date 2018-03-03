@@ -15,12 +15,11 @@ export class SectionsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let subchapters = this.route.snapshot.data.subchapters;
-    let sections = this.route.snapshot.data.sections;
+    let subchapters = this.route.snapshot.data.subchapters.map(x => Object.assign({}, x));
+    let sections = this.route.snapshot.data.sections.map(x => Object.assign({}, x));
     subchapters.map(subchapter => {
       subchapter.sections = sections.filter(section => section.subchapterId === subchapter.id);
     });
-    console.log(subchapters);
     this.sidebarService.loadComponent({ component: SectionListComponent, data: subchapters });
   }
 

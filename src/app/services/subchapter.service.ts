@@ -61,13 +61,14 @@ export class SubchapterService {
     return Observable.of(this.subchapters);
   }
 
-  getSubchapters(chapterId: string): Observable<Subchapter[]> {
+  getSubchaptersByChapterId(chapterId: string): Observable<Subchapter[]> {
     return Observable.of(
       this.subchapters.filter(subchapter => subchapter.chapterId === chapterId)
     );
   }
 
   getSubchapter(id: string): Observable<Subchapter> {
-    return Observable.of(this.subchapters.find(subchapter => subchapter.id === id));
+    return Observable.of(this.subchapters.find(subchapter => subchapter.id === id))
+      .delay(1500);
   }
 }

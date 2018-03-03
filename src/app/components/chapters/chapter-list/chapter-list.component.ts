@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 import { Chapter } from '../../../models/chapter.model';
-import { ChapterService } from '../../../services/chapter.service';
 import { slideInOutAnimation } from '../../../shared/animation';
 
 @Component({
@@ -10,14 +9,6 @@ import { slideInOutAnimation } from '../../../shared/animation';
   styleUrls: ['./chapter-list.component.css'],
   animations: [slideInOutAnimation]
 })
-export class ChapterListComponent implements OnInit, OnDestroy {
+export class ChapterListComponent {
   chapters: Array<Chapter>;
-
-  constructor(private chapterService: ChapterService) { }
-
-  ngOnInit() {
-  }
-
-  ngOnDestroy() {
-  }
 }

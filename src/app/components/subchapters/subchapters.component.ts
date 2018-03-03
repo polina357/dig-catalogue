@@ -14,8 +14,8 @@ export class SubchaptersComponent implements OnInit {
   constructor(private sidebarService: SidebarService,
   private route: ActivatedRoute) { }
   ngOnInit() {
-    let chapters = this.route.snapshot.data.chapters;
-    let subchapters = this.route.snapshot.data.subchapters;
+    let chapters = this.route.snapshot.data.chapters.map(x => Object.assign({}, x));
+    let subchapters = this.route.snapshot.data.subchapters.map(x => Object.assign({}, x));
     chapters.map(chapter => {
       chapter.subchapters = subchapters.filter(subchapter => subchapter.chapterId === chapter.id);
     });

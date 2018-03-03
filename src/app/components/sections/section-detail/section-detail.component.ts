@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { RangeService } from '../../../services/range.service';
 import { Section } from '../../../models/section.model';
@@ -13,7 +14,7 @@ import { RangeModel } from '../../../models/range.model';
 export class SectionDetailComponent implements OnInit, OnDestroy {
   section: Section;
   ranges: Array<RangeModel>;
-  sub;
+  sub: Subscription;
 
   constructor(private rangeService: RangeService,
     private route: ActivatedRoute,
@@ -23,13 +24,13 @@ export class SectionDetailComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.section = this.route.snapshot.data.section;
-        this.rangeService.getRanges(this.section.id).subscribe(result => {
+        this.rangeService.getRangesBySectionId(this.section.id).subscribe(result => {
           this.ranges = result;
         });
       }
     });
     this.section = this.route.snapshot.data.section;
-    this.rangeService.getRanges(this.section.id).subscribe(result => {
+    this.rangeService.getRangesBySectionId(this.section.id).subscribe(result => {
       this.ranges = result;
     });
   }
