@@ -1,5 +1,5 @@
 <div *ngFor="let chapter of chapters">
   <h3>{{ chapter.title }}</h3>
   <app-card *ngFor="let subchapter of subchapters" [link]="['/subchapters', subchapter.id]" [category]="subchapter"></app-card>
-  <hr>
+  <mat-divider></mat-divider>
 </div>

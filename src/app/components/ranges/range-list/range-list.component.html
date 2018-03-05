@@ -6,7 +6,7 @@
         <h5>{{ section.title }}</h5>
         <app-range-item *ngFor="let range of section.ranges" [range]="range">
         </app-range-item>
-        <hr>
+        <mat-divider></mat-divider>
       </ng-container>
     </mat-nav-list>
   </virtual-scroll>

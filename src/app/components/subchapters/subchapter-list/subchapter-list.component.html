@@ -5,7 +5,7 @@
         <h5>{{ chapter.title }}</h5>
         <app-subchapter-item *ngFor="let subchapter of chapter.subchapters" [subchapter]="subchapter">
         </app-subchapter-item>
-        <hr>
+        <mat-divider></mat-divider>
       </ng-container>
     </mat-nav-list>
   </virtual-scroll>
