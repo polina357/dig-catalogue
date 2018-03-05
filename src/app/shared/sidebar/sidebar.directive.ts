@@ -6,6 +6,5 @@ import { Directive, ViewContainerRef, OnInit } from '@angular/core';
 export class SidebarDirective implements OnInit {
   constructor(public viewContainerRef: ViewContainerRef) { }
   ngOnInit() {
-
   }
 }

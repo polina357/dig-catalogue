@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ranges',
-  templateUrl: './ranges.component.html',
-  styleUrls: ['./ranges.component.css']
+  templateUrl: './ranges.component.html'
 })
 export class RangesComponent implements OnInit {
 

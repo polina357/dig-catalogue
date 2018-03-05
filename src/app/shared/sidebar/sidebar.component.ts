@@ -7,8 +7,7 @@ import { ChapterListComponent } from '../../components/chapters/chapter-list/cha
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements AfterViewInit, OnDestroy {
   @ViewChild(SidebarDirective) sidebarHost: SidebarDirective;

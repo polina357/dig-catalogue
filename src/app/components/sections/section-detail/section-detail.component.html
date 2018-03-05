@@ -1,6 +1,8 @@
-<div>
+<div class="section">
   <h2>Section details</h2>
   <pre>{{ section | json }}</pre>
   <h3>Ranges: </h3>
-  <app-card *ngFor="let range of ranges" [link]="['/ranges', range.id]" [category]="range"></app-card>
+  <div class="container">
+    <app-card *ngFor="let range of ranges" [link]="['/ranges', range.id]" [category]="range"></app-card>
+  </div>
 </div>

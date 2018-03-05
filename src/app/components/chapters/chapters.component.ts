@@ -6,14 +6,14 @@ import { ChapterListComponent } from './chapter-list/chapter-list.component';
 
 @Component({
   selector: 'app-chapters',
-  templateUrl: './chapters.component.html',
-  styleUrls: ['./chapters.component.css']
+  templateUrl: './chapters.component.html'
 })
 export class ChaptersComponent implements OnInit {
 
   constructor(private sidebarService: SidebarService,
     private route: ActivatedRoute) { }
+
   ngOnInit() {
-    this.sidebarService.loadComponent({component: ChapterListComponent, data: this.route.snapshot.data});
+    this.sidebarService.loadComponent({ component: ChapterListComponent, data: this.route.snapshot.data });
   }
 }

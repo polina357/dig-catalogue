@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-subchapters',
-  templateUrl: './subchapters.component.html',
-  styleUrls: ['./subchapters.component.css']
+  templateUrl: './subchapters.component.html'
 })
 export class SubchaptersComponent implements OnInit {
 
