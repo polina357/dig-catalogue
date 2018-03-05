@@ -15,13 +15,11 @@ import { SubchaptersModule } from './components/subchapters/subchapters.module';
 import { SectionsModule } from './components/sections/sections.module';
 import { RangesModule } from './components/ranges/ranges.module';
 import { LoaderComponent } from './shared/loader/loader.component';
-import { StartComponent } from './components/start/start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent,
-    StartComponent
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -30,7 +30,8 @@ export class ChapterService {
   ];
   constructor(private route: ActivatedRoute) { }
   getChapters(): Observable<Chapter[]> {
-    return Observable.of(this.chapters);
+    return Observable.of(this.chapters)
+      .delay(1500);
   }
   getChapter(id: string): Observable<Chapter> {
     return Observable.of(this.chapters.find(chapter => chapter.id === id))

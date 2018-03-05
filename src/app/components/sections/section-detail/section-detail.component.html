@@ -1,6 +1,6 @@
 <div>
   <h2>Section details</h2>
   <pre>{{ section | json }}</pre>
-  <h3>Sections: </h3>
-  <button class="btn" *ngFor="let range of ranges" (click)="chooseRange(range)">RangeId: {{ range.id }}</button>
+  <h3>Ranges: </h3>
+  <app-card *ngFor="let range of ranges" [link]="['/ranges', range.id]" [category]="range"></app-card>
 </div>

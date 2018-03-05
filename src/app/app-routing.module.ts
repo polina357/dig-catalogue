@@ -15,7 +15,7 @@ import { SectionDetailComponent } from './components/sections/section-detail/sec
 import { RangesComponent } from './components/ranges/ranges.component';
 import { RangeResolve, RangesResolve } from './services/resolvers/range.resolver';
 import { RangeDetailComponent } from './components/ranges/range-detail/range-detail.component';
-import { StartComponent } from './components/start/start.component';
+import { StartComponent } from './components/chapters/start/start.component';
 
 const appRoutes: Routes = [
   {

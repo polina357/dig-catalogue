@@ -1,6 +1,5 @@
-<div>
-  <h2>Chapter details</h2>
-  <pre>{{ chapter | json }}</pre>
-  <h3>Subchapters: </h3>
+<div *ngFor="let chapter of chapters">
+  <h3>{{ chapter.title }}</h3>
   <app-card *ngFor="let subchapter of subchapters" [link]="['/subchapters', subchapter.id]" [category]="subchapter"></app-card>
+  <hr>
 </div>

@@ -37,10 +37,6 @@ export class SubchapterDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  chooseSection(section) {
-    this.router.navigate(['sections', section.id]);
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

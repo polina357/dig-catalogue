@@ -2,5 +2,5 @@
   <h2>Range details</h2>
   <pre>{{ range | json }}</pre>
   <h3>Items: </h3>
-  <pre>{{ items | json }}</pre>
+  <app-card *ngFor="let item of items" [category]="item"></app-card>
 </div>

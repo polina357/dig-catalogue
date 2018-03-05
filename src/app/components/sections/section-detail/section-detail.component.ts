@@ -35,10 +35,6 @@ export class SectionDetailComponent implements OnInit, OnDestroy {
     });
   }
 
-  chooseRange(range) {
-    this.router.navigate(['ranges', range.id]);
-  }
-
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

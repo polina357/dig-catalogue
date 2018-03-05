@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Chapter } from '../../models/chapter.model';
-import { Subchapter } from '../../models/subchapter.model';
+import { Chapter } from '../../../models/chapter.model';
+import { Subchapter } from '../../../models/subchapter.model';
 
 @Component({
   selector: 'app-start',
@@ -16,7 +16,6 @@ export class StartComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log(this.route.parent.snapshot);
     this.chapters = this.route.parent.snapshot.data.chapters.map(x => Object.assign({}, x));
     this.subchapters = this.route.parent.snapshot.data.subchapters.map(x => Object.assign({}, x));
     this.chapters.map(chapter => {

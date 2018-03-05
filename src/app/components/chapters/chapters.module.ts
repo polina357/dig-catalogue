@@ -11,6 +11,7 @@ import { ChapterItemComponent } from './chapter-item/chapter-item.component';
 import { ChapterResolve, ChaptersResolve } from '../../services/resolvers/chapter.resolver';
 import { ChapterDetailComponent } from './chapter-detail/chapter-detail.component';
 import { ChapterService } from '../../services/chapter.service';
+import { StartComponent } from './start/start.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ChapterService } from '../../services/chapter.service';
     ChaptersComponent,
     ChapterListComponent,
     ChapterItemComponent,
-    ChapterDetailComponent
+    ChapterDetailComponent,
+    StartComponent
   ],
   providers: [
     ChapterResolve,
