@@ -6,7 +6,7 @@ mat-drawer-container {
 mat-drawer {
   min-width: 18%;
   top: 4rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: fixed;
 }
 

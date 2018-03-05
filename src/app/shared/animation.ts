@@ -5,7 +5,7 @@ export const slideInOutAnimation =
     state('*', style({ transform: 'translateX(0)' })),
     transition(':enter', [
       style({ transform: 'translateX(-100%)' }),
-      animate('300ms 300ms')
+      animate(300)
     ]),
     transition(':leave', [
       animate(300, style({ transform: 'translateX(100%)' }))
