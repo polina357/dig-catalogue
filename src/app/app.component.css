@@ -1,5 +1,6 @@
 mat-drawer {
-  min-width: 220px;
+  min-width: 17%;
+  position: fixed;
 }
 
 mat-drawer-content {
