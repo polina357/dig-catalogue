@@ -1,16 +1,53 @@
-mat-drawer-container {
-  margin-top: 4rem;
+.page {
+  height: 100%;
   width: 100%;
+  display: flex;
 }
 
-mat-drawer {
+mat-toolbar {
+  height: 4rem;
+  z-index: 10;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+
+button:focus {
+  outline: none;
+}
+
+span {
+  margin-left: 10px;
+}
+
+.column {
+  height: 100%;  /*allows both columns to span the full height of the browser window*/
+  display: flex;
+  flex-direction: column;  /*places the left and right headers above the bottom content*/
+}
+
+#left {
+  flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
   min-width: 18%;
-  top: 4rem;
-  /* overflow: hidden; */
-  position: fixed;
+  box-shadow: inset 0 2px 5px 0 rgba(0,0,0,.3);
 }
 
-mat-drawer-content {
-  margin-left: 5%;
+#right {
+  min-width: 82%;
+}
+
+.top-left {
+  flex-shink: 0;
+}
+
+.top-right {
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.bottom {
+  flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
+  overflow-y: auto;  /*adds scroll to this container*/
+}
+
+#right.bottom {
   position: relative;
 }
