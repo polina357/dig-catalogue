@@ -1,7 +1,7 @@
-/* virtual-scroll {
+virtual-scroll {
   display: block;
-  height: 100vh;
-} */
+  height: calc(100vh - 4rem);
+}
 
 h5 {
   padding-left: 10px;

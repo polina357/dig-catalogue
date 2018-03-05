@@ -1,12 +1,12 @@
 <div [@slideInOutAnimation]>
-  <!-- <virtual-scroll [items]="data" [childWidth]="200" [childHeight]="135" [bufferAmount]="1" (update)="scrollItems = $event"> -->
+  <virtual-scroll [items]="data" [childWidth]="200" [childHeight]="117" [bufferAmount]="1" (update)="scrollItems = $event">
     <mat-nav-list>
-      <ng-container *ngFor="let chapter of data">
+      <ng-container *ngFor="let chapter of scrollItems">
         <h5>{{ chapter.title }}</h5>
         <app-subchapter-item *ngFor="let subchapter of chapter.subchapters" [subchapter]="subchapter">
         </app-subchapter-item>
         <mat-divider></mat-divider>
       </ng-container>
     </mat-nav-list>
-  <!-- </virtual-scroll> -->
+  </virtual-scroll>
 </div>

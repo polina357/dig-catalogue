@@ -1,8 +1,8 @@
 <div [@slideInOutAnimation]>
-  <!-- <virtual-scroll [items]="data.chapters" [childWidth]="200" [childHeight]="135" [bufferAmount]="1" (update)="scrollItems = $event"> -->
+  <virtual-scroll [items]="data.chapters" [childWidth]="200" [childHeight]="50" [bufferAmount]="1" (update)="scrollItems = $event">
     <mat-nav-list>
-      <app-chapter-item *ngFor="let chapter of data.chapters" [chapter]="chapter">
+      <app-chapter-item *ngFor="let chapter of scrollItems" [chapter]="chapter">
       </app-chapter-item>
     </mat-nav-list>
-  <!-- </virtual-scroll> -->
+  </virtual-scroll>
 </div>
