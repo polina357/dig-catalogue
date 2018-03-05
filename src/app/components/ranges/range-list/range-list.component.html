@@ -1,10 +1,13 @@
 <div [@slideInOutAnimation]>
-  <virtual-scroll [items]="data" [childWidth]="200" [childHeight]="135" [bufferAmount]="1" (update)="scrollItems = $event" class="list-group list-group-flush">
-    <ng-container *ngFor="let section of scrollItems">
-      <h5>{{ section.title }}</h5>
-      <app-range-item *ngFor="let range of section.ranges" [range]="range">
-      </app-range-item>
-      <hr>
-    </ng-container>
+  <virtual-scroll [items]="data" [childWidth]="200" [childHeight]="135" [bufferAmount]="1" (update)="scrollItems = $event"
+    class="list-group list-group-flush">
+    <mat-nav-list>
+      <ng-container *ngFor="let section of scrollItems">
+        <h5>{{ section.title }}</h5>
+        <app-range-item *ngFor="let range of section.ranges" [range]="range">
+        </app-range-item>
+        <hr>
+      </ng-container>
+    </mat-nav-list>
   </virtual-scroll>
 </div>

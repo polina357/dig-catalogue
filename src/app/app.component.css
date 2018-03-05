@@ -1,9 +1,16 @@
+mat-drawer-container {
+  margin-top: 4rem;
+  width: 100%;
+}
+
 mat-drawer {
-  min-width: 17%;
+  min-width: 18%;
+  top: 4rem;
+  overflow: hidden;
   position: fixed;
 }
 
 mat-drawer-content {
-  min-height: 100vh;
+  margin-left: 5%;
   position: relative;
 }
