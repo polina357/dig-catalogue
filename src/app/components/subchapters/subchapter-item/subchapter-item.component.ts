@@ -10,7 +10,7 @@ export class SubchapterItemComponent implements OnInit {
   @Input() subchapter: Subchapter;
   @Input() chapterId: string;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {

@@ -27,7 +27,7 @@ export class ChapterService {
       title: 'Chapter4',
       description: 'Description for the chapter 4'
     },
-  ]
+  ];
   constructor(private route: ActivatedRoute) { }
   getChapters(): Observable<Chapter[]> {
     return Observable.of(this.chapters);

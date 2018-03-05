@@ -90,7 +90,7 @@ export class RangeService {
       title: 'Range14',
       description: 'Description for the range 14'
     },
-  ]
+  ];
   constructor() { }
 
   getAllRanges() {

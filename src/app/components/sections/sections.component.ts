@@ -15,8 +15,8 @@ export class SectionsComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let subchapters = this.route.snapshot.data.subchapters.map(x => Object.assign({}, x));
-    let sections = this.route.snapshot.data.sections.map(x => Object.assign({}, x));
+    const subchapters = this.route.snapshot.data.subchapters.map(x => Object.assign({}, x));
+    const sections = this.route.snapshot.data.sections.map(x => Object.assign({}, x));
     subchapters.map(subchapter => {
       subchapter.sections = sections.filter(section => section.subchapterId === subchapter.id);
     });

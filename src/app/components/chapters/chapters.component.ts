@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { SidebarService } from '../../shared/sidebar/sidebar.service';
 import { ChapterListComponent } from './chapter-list/chapter-list.component';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chapters',

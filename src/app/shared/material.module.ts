@@ -10,7 +10,7 @@ const modules = [
     MatSidenavModule,
     MatCardModule,
     MatProgressSpinnerModule
-]
+];
 
 @NgModule({
     imports: modules,

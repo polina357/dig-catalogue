@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ResolveStart, ResolveEnd, NavigationCancel } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-loader',
@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class LoaderComponent implements OnInit, OnDestroy {
   displayStyle: string;
-  sub: Subscription
+  sub: Subscription;
 
   constructor(private router: Router) { }
 
@@ -20,7 +20,7 @@ export class LoaderComponent implements OnInit, OnDestroy {
       } else if (event instanceof ResolveEnd) {
         this.displayStyle = 'none';
       }
-    })
+    });
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

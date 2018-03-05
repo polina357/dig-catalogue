@@ -60,7 +60,7 @@ export class SectionService {
       title: 'Section9',
       description: 'Description for the section 9'
     }
-  ]
+  ];
   constructor() { }
 
   getAllSections() {

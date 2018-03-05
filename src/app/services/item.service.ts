@@ -132,7 +132,7 @@ export class ItemService {
       title: 'Item21',
       description: 'Description for the item 21'
     }
-  ]
+  ];
 
   constructor() { }
 

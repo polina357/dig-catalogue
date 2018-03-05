@@ -54,7 +54,7 @@ export class SubchapterService {
       title: 'SubChapter8',
       description: 'Description for the subchapter 4'
     }
-  ]
+  ];
   constructor() { }
 
   getAllSubchapters() {

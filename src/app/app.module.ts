@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import 'rxjs/Rx';
+import './shared/rxjs-imports';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from './shared/material.module';
@@ -16,11 +15,13 @@ import { SubchaptersModule } from './components/subchapters/subchapters.module';
 import { SectionsModule } from './components/sections/sections.module';
 import { RangesModule } from './components/ranges/ranges.module';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { StartComponent } from './components/start/start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,

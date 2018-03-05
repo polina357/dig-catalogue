@@ -5,7 +5,7 @@ import { Subject } from 'rxjs/Subject';
 export class SidebarService {
   Sidebar$: Subject<any>;
   constructor() {
-    this.Sidebar$ = new Subject()
+    this.Sidebar$ = new Subject();
   }
   loadComponent(params) {
     this.Sidebar$.next(params);

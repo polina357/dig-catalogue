@@ -1,5 +1,4 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { slideInOutAnimation } from '../../../shared/animation';
 
 import { Subchapter } from '../../../models/subchapter.model';
@@ -17,10 +16,7 @@ export class SubchapterListComponent implements OnInit {
   chapter: Chapter;
   subchapters: Array<Subchapter>;
 
-  constructor(private subchapterService: SubchapterService,
-    private chapterService: ChapterService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
   }

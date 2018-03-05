@@ -8,7 +8,7 @@ import { ChapterService } from '../chapter.service';
 @Injectable()
 export class ChapterResolve implements Resolve<Chapter> {
 
-  constructor(private service: ChapterService) {}
+  constructor(private service: ChapterService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Chapter> {
     return this.service.getChapter(route.params.chapterId);
@@ -17,7 +17,7 @@ export class ChapterResolve implements Resolve<Chapter> {
 @Injectable()
 export class ChaptersResolve implements Resolve<Chapter[]> {
 
-  constructor(private service: ChapterService) {}
+  constructor(private service: ChapterService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Chapter[]> {
     return this.service.getChapters();
