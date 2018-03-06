@@ -1,10 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd, ResolveStart, ResolveEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 
 import { Subchapter } from '../../../models/subchapter.model';
 import { SubchapterService } from '../../../services/subchapter.service';
 import { Chapter } from '../../../models/chapter.model';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 
 @Component({
   selector: 'app-chapter-detail',
@@ -12,6 +14,8 @@ import { Chapter } from '../../../models/chapter.model';
   styleUrls: ['./chapter-detail.component.css']
 })
 export class ChapterDetailComponent implements OnInit, OnDestroy {
+  @ViewChild('container') container;
+
   subchapters: Array<Subchapter>;
   chapter: Chapter;
   sub: Subscription;

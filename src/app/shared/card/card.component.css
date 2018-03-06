@@ -2,9 +2,10 @@
   max-width: 250px;
   margin: 20px;
   cursor: pointer;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
 }
 
-.header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.card:hover {
+  box-shadow: 0 0 52px rgba(10,16,20,.32);
 }

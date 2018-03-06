@@ -35,7 +35,7 @@ span {
 }
 
 .top-left {
-  flex-shink: 0;
+  flex-shrink: 0;
 }
 
 .top-right {
@@ -43,11 +43,12 @@ span {
   display: inline-flex;
 }
 
-.bottom {
+#left.bottom {
   flex-grow: 1;
   overflow-y: auto;
 }
 
 #right.bottom {
+  flex-grow: 1;
   position: relative;
 }

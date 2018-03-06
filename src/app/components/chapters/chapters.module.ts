@@ -12,6 +12,7 @@ import { ChapterResolve, ChaptersResolve } from '../../services/resolvers/chapte
 import { ChapterDetailComponent } from './chapter-detail/chapter-detail.component';
 import { ChapterService } from '../../services/chapter.service';
 import { StartComponent } from './start/start.component';
+import { InfiniteScrollDirective } from '../../shared/infinite-scroll.directive';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { StartComponent } from './start/start.component';
     ChapterListComponent,
     ChapterItemComponent,
     ChapterDetailComponent,
-    StartComponent
+    StartComponent,
+    InfiniteScrollDirective
   ],
   providers: [
     ChapterResolve,
