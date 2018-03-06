@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { Observable } from 'rxjs/Observable';
 
 import { Chapter } from '../../../models/chapter.model';
 import { Subchapter } from '../../../models/subchapter.model';
-import { fromEvent } from 'rxjs/observable/fromEvent';
 import { ChapterService } from '../../../services/chapter.service';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-start',
@@ -29,20 +30,17 @@ export class StartComponent implements OnInit {
   }
 
   onScrollEvent(e) {
-    console.log(e);
     this.getChapter();
   }
 
   private getChapter() {
-    if (this.finished) return;
-    this.chapterService
-      .getChapter(this.currentChapterId.toString())
+    Observable.of(this.chapters)
+      .exhaustMap(() => {
+        return this.chapterService
+          .getChapter(this.currentChapterId.toString());
+      })
       .do(chapter => {
-        console.log(chapter);
-        if (!chapter) {
-          this.finished = true; 
-          return;
-        }
+        if (!chapter) return;
         chapter.subchapters = this.subchapters.filter(subchapter => subchapter.chapterId === chapter.id);
         this.currentChapterId++;
         const currentChapters = this.chapters.getValue();
