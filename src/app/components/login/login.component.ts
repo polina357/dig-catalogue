@@ -4,11 +4,12 @@ import { FormControl, Validators, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class SignupComponent implements OnInit {
+export class LoginComponent implements OnInit {
+  mode: string;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
@@ -23,12 +24,23 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSignup(form: NgForm) {
-    console.log(form);
+  onSubmit(form: NgForm) {
     const email = form.value.email;
     const password = form.value.password;
-    console.log(form.value.email);
-    this.authService.signupUser(email, password);
+    console.log(this.mode);
+    if (this.mode === 'signup') {
+      this.authService.signupUser(email, password);
+      return;
+    }
+    this.authService.signinUser(email, password);
+  }
+
+  setToSignup() {
+    this.mode = 'signup';
+  }
+
+  setToSignin() {
+    this.mode = 'signin';
   }
 
 }

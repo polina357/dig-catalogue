@@ -16,9 +16,8 @@ import { RangesComponent } from './components/ranges/ranges.component';
 import { RangeResolve, RangesResolve } from './services/resolvers/range.resolver';
 import { RangeDetailComponent } from './components/ranges/range-detail/range-detail.component';
 import { StartComponent } from './components/chapters/start/start.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { SigninComponent } from './auth/signin/signin.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   {
@@ -27,12 +26,8 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'signup',
-    component: SignupComponent
-  },
-  {
-    path: 'signin',
-    component: SigninComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: 'chapters',
