@@ -15,11 +15,18 @@ import { SubchaptersModule } from './components/subchapters/subchapters.module';
 import { SectionsModule } from './components/sections/sections.module';
 import { RangesModule } from './components/ranges/ranges.module';
 import { LoaderComponent } from './shared/loader/loader.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoaderComponent
+    LoaderComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -32,8 +39,11 @@ import { LoaderComponent } from './shared/loader/loader.component';
     ChaptersModule,
     SubchaptersModule,
     SectionsModule,
+    FormsModule,
+    ReactiveFormsModule,
     RangesModule
   ],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

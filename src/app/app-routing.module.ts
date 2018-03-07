@@ -16,6 +16,9 @@ import { RangesComponent } from './components/ranges/ranges.component';
 import { RangeResolve, RangesResolve } from './services/resolvers/range.resolver';
 import { RangeDetailComponent } from './components/ranges/range-detail/range-detail.component';
 import { StartComponent } from './components/chapters/start/start.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   {
@@ -24,8 +27,17 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
+  },
+  {
     path: 'chapters',
     component: ChaptersComponent,
+    canActivate: [AuthGuardService],
     resolve: {
       chapters: ChaptersResolve,
       subchapters: SubchaptersResolve
@@ -47,6 +59,7 @@ const appRoutes: Routes = [
   {
     path: 'subchapters',
     component: SubchaptersComponent,
+    canActivate: [AuthGuardService],
     resolve: {
       chapters: ChaptersResolve,
       subchapters: SubchaptersResolve
@@ -64,6 +77,7 @@ const appRoutes: Routes = [
   {
     path: 'sections',
     component: SectionsComponent,
+    canActivate: [AuthGuardService],
     resolve: {
       subchapters: SubchaptersResolve,
       sections: SectionsResolve
@@ -81,6 +95,7 @@ const appRoutes: Routes = [
   {
     path: 'ranges',
     component: RangesComponent,
+    canActivate: [AuthGuardService],
     resolve: {
       sections: SectionsResolve,
       ranges: RangesResolve

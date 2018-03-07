@@ -5,6 +5,4 @@
       <app-card *ngFor="let subchapter of subchapters" [link]="['/subchapters', subchapter.id]" [category]="subchapter"></app-card>
     </div>
   </div>
-  <p *ngIf="!finished; else finish">Loading...</p>
-  <ng-template #finish>End of content</ng-template>
 </div>
