@@ -1,17 +1,19 @@
 <div class="container">
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="example-container">
+  <form (ngSubmit)="onSubmit(f)" [formGroup]="loginForm" #f="ngForm" class="form-container">
     <mat-form-field>
-      <input matInput placeholder="Enter your email" ngModel required type="email" id="email" name="email">
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput [formControl]="email" placeholder="Enter your email" ngModel required type="email" id="email" name="email">
+      <mat-error *ngIf="email.invalid">{{getErrorMessageForEmail()}}</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Enter your password" ngModel [type]="hide ? 'password' : 'text'" type="password" id="password"
-        name="password">
+      <input matInput [formControl]="password" placeholder="Enter your password" ngModel required [type]="hide ? 'password' : 'text'"
+        type="password" id="password" name="password">
+      <mat-error *ngIf="password.invalid">{{getErrorMessageForPassword()}}</mat-error>
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      <mat-hint align="start">min 6 characters</mat-hint>
     </mat-form-field>
     <div class="buttons-container">
-      <button mat-raised-button type="submit" (click)="setToSignup()">Sign Up</button>
-      <button mat-raised-button type="submit" (click)="setToSignin()">Sign In</button>
+      <button mat-raised-button type="submit" (click)="setToSignup()" [disabled]="!loginForm.valid">Sign Up</button>
+      <button mat-raised-button type="submit" (click)="setToSignin()" [disabled]="!loginForm.valid">Sign In</button>
     </div>
   </form>
 </div>

@@ -13,12 +13,12 @@ form {
   box-shadow: 0 0 52px rgba(10,16,20,.32);
 }
 
-.example-container {
+.form-container {
   display: flex;
   flex-direction: column;
 }
 
-.example-container > * {
+.form-container > * {
   width: 100%;
 }
 
@@ -30,6 +30,7 @@ form {
 
 .buttons-container > button {
   margin: 1em;
+  margin-top: 2em;
 }
 
 .example-right-align {
