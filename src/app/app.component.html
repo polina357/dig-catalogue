@@ -14,7 +14,11 @@
   </div>
   <div id="right" class="column">
     <div class="top-right">
-      <mat-toolbar color="primary"></mat-toolbar>
+      <mat-toolbar color="primary" class="right-toolbar">
+        <button mat-icon-button (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </mat-toolbar>
     </div>
     <div class="bottom" #container>
       <app-loader></app-loader>

@@ -10,6 +10,15 @@ mat-toolbar {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
 }
 
+mat-toolbar.right-toolbar {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+mat-toolbar.right-toolbar > * {
+  margin-right: 1em;
+}
+
 button:focus {
   outline: none;
 }
