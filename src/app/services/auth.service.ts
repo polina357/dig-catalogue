@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 import * as firebase from 'firebase';
+import { of } from 'rxjs/observable/of';
+import { from } from 'rxjs/observable/from';
 
 @Injectable()
 export class AuthService {
-  token: string;
   cachedRequests: Array<HttpRequest<any>> = [];
 
   constructor(private router: Router) { }
@@ -23,10 +25,6 @@ export class AuthService {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(response => {
         this.router.navigate(['/']);
-        firebase.auth().currentUser.getToken()
-          .then((token: string) => {
-            this.token = token;
-          });
       })
       .catch(error =>
         console.log(error)
@@ -37,10 +35,6 @@ export class AuthService {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(response => {
         this.router.navigate(['/']);
-        firebase.auth().currentUser.getToken()
-          .then((token: string) => {
-            this.token = token;
-          });
       })
       .catch(error =>
         console.log(error)
@@ -49,19 +43,16 @@ export class AuthService {
 
   logout() {
     firebase.auth().signOut();
-    this.token = null;
     this.router.navigate(['/login']);
   }
 
   getToken() {
-    firebase.auth().currentUser.getToken()
-      .then((token: string) =>
-        this.token = token
-      );
-    return this.token;
+    return firebase.auth().currentUser.getIdToken();
   }
 
   isAuthenticated() {
-    return this.token != null;
+    return from([firebase.auth])
+      .take(1)
+      .map(state => !!state);
   }
 }

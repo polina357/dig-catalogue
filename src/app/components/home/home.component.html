@@ -1,3 +1,28 @@
-<p>
-  home works!
-</p>
+<div class="page">
+  <div id="left" class="column">
+    <div class="top-left">
+      <mat-toolbar color="primary">
+        <button mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Application</span>
+      </mat-toolbar>
+    </div>
+    <div class="bottom">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+  <div id="right" class="column">
+    <div class="top-right">
+      <mat-toolbar color="primary" class="right-toolbar">
+        <button mat-icon-button (click)="logOut()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+    <div class="bottom" #container>
+      <app-loader></app-loader>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

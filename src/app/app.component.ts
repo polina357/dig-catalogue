@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as firebase from 'firebase';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-
-import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +9,7 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {
     firebase.initializeApp({
@@ -21,7 +18,4 @@ export class AppComponent implements OnInit {
     });
   }
 
-  logOut() {
-    this.authService.logout();
-  }
 }
