@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('home');
   }
 
   logOut() {

@@ -26,91 +26,86 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuardService],
-    pathMatch: 'full',
+    // canActivate: [AuthGuardService],
+    // pathMatch: 'full',
     children: [
       {
-        path: '',
-        canActivateChild: [AuthGuardService],
+        path: 'chapters',
+        component: ChaptersComponent,
+        canActivate: [AuthGuardService],
+        resolve: {
+          chapters: ChaptersResolve,
+          subchapters: SubchaptersResolve
+        },
         children: [
           {
-            path: './chapters',
-            component: ChaptersComponent,
-            resolve: {
-              chapters: ChaptersResolve,
-              subchapters: SubchaptersResolve
-            },
-            children: [
-              {
-                path: '',
-                component: StartComponent
-              },
-              {
-                path: ':chapterId',
-                resolve: {
-                  chapter: ChapterResolve
-                },
-                component: ChapterDetailComponent
-              }
-            ]
-          },
-          {
-            path: 'subchapters',
-            component: SubchaptersComponent,
-            resolve: {
-              chapters: ChaptersResolve,
-              subchapters: SubchaptersResolve
-            },
-            children: [
-              {
-                path: ':subchapterId',
-                resolve: {
-                  subchapter: SubchapterResolve
-                },
-                component: SubchapterDetailComponent
-              }
-            ]
-          },
-          {
-            path: 'sections',
-            component: SectionsComponent,
-            resolve: {
-              subchapters: SubchaptersResolve,
-              sections: SectionsResolve
-            },
-            children: [
-              {
-                path: ':sectionId',
-                resolve: {
-                  section: SectionResolve
-                },
-                component: SectionDetailComponent
-              }
-            ]
-          },
-          {
-            path: 'ranges',
-            component: RangesComponent,
-            resolve: {
-              sections: SectionsResolve,
-              ranges: RangesResolve
-            },
-            children: [
-              {
-                path: ':rangeId',
-                resolve: {
-                  range: RangeResolve
-                },
-                component: RangeDetailComponent
-              }
-            ]
-          },
-          {
             path: '',
-            redirectTo: 'chapters',
-            pathMatch: 'full'
+            component: StartComponent
+          },
+          {
+            path: ':chapterId',
+            resolve: {
+              chapter: ChapterResolve
+            },
+            component: ChapterDetailComponent
           }
         ]
+      },
+      {
+        path: 'subchapters',
+        component: SubchaptersComponent,
+        resolve: {
+          chapters: ChaptersResolve,
+          subchapters: SubchaptersResolve
+        },
+        children: [
+          {
+            path: ':subchapterId',
+            resolve: {
+              subchapter: SubchapterResolve
+            },
+            component: SubchapterDetailComponent
+          }
+        ]
+      },
+      {
+        path: 'sections',
+        component: SectionsComponent,
+        resolve: {
+          subchapters: SubchaptersResolve,
+          sections: SectionsResolve
+        },
+        children: [
+          {
+            path: ':sectionId',
+            resolve: {
+              section: SectionResolve
+            },
+            component: SectionDetailComponent
+          }
+        ]
+      },
+      {
+        path: 'ranges',
+        component: RangesComponent,
+        resolve: {
+          sections: SectionsResolve,
+          ranges: RangesResolve
+        },
+        children: [
+          {
+            path: ':rangeId',
+            resolve: {
+              range: RangeResolve
+            },
+            component: RangeDetailComponent
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'chapters',
+        pathMatch: 'full'
       }
     ]
   },

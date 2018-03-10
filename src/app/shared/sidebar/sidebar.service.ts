@@ -8,6 +8,7 @@ export class SidebarService {
     this.Sidebar$ = new Subject();
   }
   loadComponent(params) {
+    console.log('sidebar service params', params);
     this.Sidebar$.next(params);
   }
 }

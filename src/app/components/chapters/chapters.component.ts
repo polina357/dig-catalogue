@@ -14,6 +14,7 @@ export class ChaptersComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('chapters init');
     this.sidebarService.loadComponent({ component: ChapterListComponent, data: this.route.snapshot.data });
   }
 }

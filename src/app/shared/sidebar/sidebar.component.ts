@@ -19,6 +19,7 @@ export class SidebarComponent implements AfterViewInit, OnDestroy {
   ) { }
   ngAfterViewInit() {
     this.sidebarSub = this.sidebarService.Sidebar$.subscribe(params => {
+      console.log(params);
       this.loadComponent(params);
     });
   }

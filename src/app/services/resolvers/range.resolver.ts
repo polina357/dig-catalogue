@@ -20,6 +20,7 @@ export class RangesResolve implements Resolve<RangeModel[]> {
   constructor(private service: RangeService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<RangeModel[]> {
+    console.log('ranges resolver');
     return this.service.getAllRanges();
   }
 }

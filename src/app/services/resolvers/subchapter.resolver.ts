@@ -21,6 +21,7 @@ export class SubchaptersResolve implements Resolve<Subchapter[]> {
   constructor(private service: SubchapterService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Subchapter[]> {
+    console.log('subchapters resolver');
     return this.service.getAllSubchapters();
   }
 

@@ -20,6 +20,7 @@ export class ChaptersResolve implements Resolve<Chapter[]> {
   constructor(private service: ChapterService) { }
 
   resolve(route: ActivatedRouteSnapshot): Observable<Chapter[]> {
+    console.log('chapters resolver');
     return this.service.getChapters();
   }
 }

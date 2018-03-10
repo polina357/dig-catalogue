@@ -3,8 +3,7 @@ import { HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import * as firebase from 'firebase';
-import { of } from 'rxjs/observable/of';
-import { from } from 'rxjs/observable/from';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
@@ -51,7 +50,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return from([firebase.auth])
+    return Observable.from([firebase.auth])
       .take(1)
       .map(state => !!state);
   }

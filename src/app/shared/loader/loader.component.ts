@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./loader.component.css']
 })
 export class LoaderComponent implements OnInit, OnDestroy {
-  displayStyle: string;
+  displayStyle = 'none';
   sub: Subscription;
 
   constructor(private router: Router) { }
@@ -16,11 +16,14 @@ export class LoaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof ResolveStart) {
+        console.log('resolve start');
         this.displayStyle = 'block';
       } else if (event instanceof ResolveEnd) {
+        console.log('resolve end');
         this.displayStyle = 'none';
       }
     });
+    console.log(this.sub);
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
