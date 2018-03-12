@@ -23,7 +23,6 @@ export class LoaderComponent implements OnInit, OnDestroy {
         this.displayStyle = 'none';
       }
     });
-    console.log(this.sub);
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

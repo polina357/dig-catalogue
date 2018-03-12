@@ -26,13 +26,11 @@ const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    // canActivate: [AuthGuardService],
-    // pathMatch: 'full',
+    canActivateChild: [AuthGuardService],
     children: [
       {
         path: 'chapters',
         component: ChaptersComponent,
-        canActivate: [AuthGuardService],
         resolve: {
           chapters: ChaptersResolve,
           subchapters: SubchaptersResolve

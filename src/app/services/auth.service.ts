@@ -8,8 +8,13 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   cachedRequests: Array<HttpRequest<any>> = [];
+  isAuth: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    firebase.auth().onAuthStateChanged(user => {
+      this.isAuth = user ? true : false;
+    });
+  }
 
   public collectFailedRequest(request): void {
     this.cachedRequests.push(request);
@@ -41,8 +46,11 @@ export class AuthService {
   }
 
   logout() {
-    firebase.auth().signOut();
-    this.router.navigate(['/login']);
+    firebase.auth().signOut().then(() => {
+      this.router.navigate(['/login']);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   getToken() {
@@ -50,8 +58,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return Observable.from([firebase.auth])
-      .take(1)
-      .map(state => !!state);
+    return Observable.from([this.isAuth]);
   }
 }
