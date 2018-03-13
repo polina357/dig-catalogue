@@ -8,6 +8,7 @@ import './shared/rxjs-imports';
 
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import { MaterialModule } from './shared/material.module';
+import { AngularFireModule} from 'angularfire2';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';

@@ -2,19 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { fromPromise } from 'rxjs/observable/fromPromise';
+import { fromEvent } from 'rxjs/observable/fromEvent';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
   cachedRequests: Array<HttpRequest<any>> = [];
-  isAuth: boolean;
 
-  constructor(private router: Router) {
-    firebase.auth().onAuthStateChanged(user => {
-      this.isAuth = user ? true : false;
-    });
-  }
+  constructor(private router: Router) { }
 
   public collectFailedRequest(request): void {
     this.cachedRequests.push(request);
@@ -28,6 +24,7 @@ export class AuthService {
   signupUser(email: string, password: string) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(response => {
+        localStorage.setItem('isAuth', 'true');
         this.router.navigate(['/']);
       })
       .catch(error =>
@@ -38,6 +35,7 @@ export class AuthService {
   signinUser(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(response => {
+        localStorage.setItem('isAuth', 'true');
         this.router.navigate(['/']);
       })
       .catch(error =>
@@ -47,6 +45,7 @@ export class AuthService {
 
   logout() {
     firebase.auth().signOut().then(() => {
+      localStorage.removeItem('isAuth');
       this.router.navigate(['/login']);
     }).catch(error => {
       console.log(error);
@@ -58,6 +57,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return Observable.from([this.isAuth]);
+    return localStorage.getItem('isAuth');
   }
 }

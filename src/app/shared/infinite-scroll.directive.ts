@@ -5,23 +5,18 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
   selector: '[appInfiniteScroll]'
 })
 export class InfiniteScrollDirective implements AfterViewInit {
-  height: number;
-  scrollHeight: number;
 
   @Output() scrollEvent: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(private el: ElementRef) {
-    console.log(el);
-  }
+  constructor(private el: ElementRef) { }
 
   ngAfterViewInit() {
-    this.height = this.el.nativeElement.clientHeight;
-
     fromEvent(this.el.nativeElement, 'scroll')
       .subscribe(result => {
-        this.height = this.el.nativeElement.scrollHeight;
-        this.scrollHeight = this.el.nativeElement.scrollTop + this.el.nativeElement.clientHeight;
-        if ((this.height - this.scrollHeight) <= 10) {
+        const top = this.el.nativeElement.scrollTop;
+        const height = this.el.nativeElement.scrollHeight;
+        const offset = this.el.nativeElement.offsetHeight;
+        if (top > height - offset - 1) {
           this.scrollEvent.emit(this.el.nativeElement.scrollTop);
         }
       });

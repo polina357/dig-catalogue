@@ -14,8 +14,6 @@ import { ChapterService } from '../../../services/chapter.service';
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-  /*chapters: Array<Chapter>;
-    subchapters: Array<Subchapter>; */
   chapters = new BehaviorSubject([]);
   subchapters: Array<Subchapter>;
   finished = false;
@@ -40,8 +38,12 @@ export class StartComponent implements OnInit {
           .getChapter(this.currentChapterId.toString());
       })
       .do(chapter => {
-        if (!chapter) return;
-        chapter.subchapters = this.subchapters.filter(subchapter => subchapter.chapterId === chapter.id);
+        if (!chapter) { return; }
+        const index = this.chapters.getValue()
+          .findIndex(ch => ch.id === chapter.id);
+        if (index !== -1) { return; }
+        chapter.subchapters = this.subchapters
+          .filter(subchapter => subchapter.chapterId === chapter.id);
         this.currentChapterId++;
         const currentChapters = this.chapters.getValue();
         this.chapters.next(currentChapters.concat(chapter));

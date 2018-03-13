@@ -1,8 +1,8 @@
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
-import { Router } from "@angular/router";
+import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { AuthService } from "../auth.service";
+import { AuthService } from '../auth.service';
 
 export class JwtInterceptor implements HttpInterceptor {
   constructor(public auth: AuthService, private router: Router) { }

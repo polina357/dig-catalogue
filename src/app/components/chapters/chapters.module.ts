@@ -13,6 +13,7 @@ import { ChapterDetailComponent } from './chapter-detail/chapter-detail.componen
 import { ChapterService } from '../../services/chapter.service';
 import { StartComponent } from './start/start.component';
 import { InfiniteScrollDirective } from '../../shared/infinite-scroll.directive';
+import { StickyDirective } from '../../shared/sticky.directive';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { InfiniteScrollDirective } from '../../shared/infinite-scroll.directive'
     ChapterItemComponent,
     ChapterDetailComponent,
     StartComponent,
-    InfiniteScrollDirective
+    InfiniteScrollDirective,
+    StickyDirective
   ],
   providers: [
     ChapterResolve,

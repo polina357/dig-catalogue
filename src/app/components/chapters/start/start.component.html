@@ -1,6 +1,6 @@
 <div class="container-scroll" appInfiniteScroll (scrollEvent)="onScrollEvent($event)">
   <div *ngFor="let chapter of chapters | async" class="chapter">
-    <h3>{{ chapter.title }}</h3>
+    <h3 appSticky>{{ chapter.title }}</h3>
     <div class="container">
       <app-card *ngFor="let subchapter of subchapters" [link]="['/subchapters', subchapter.id]" [category]="subchapter"></app-card>
     </div>

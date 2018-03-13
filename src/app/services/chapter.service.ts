@@ -37,7 +37,7 @@ export class ChapterService {
 
   getChapter(id: string): Observable<Chapter> {
     return Observable.of(this.chapters.find(chapter => chapter.id === id))
-      .delay(1500);
+      .delay(500);
   }
 
 /*   this.http.get('https://example.com/api/things')
