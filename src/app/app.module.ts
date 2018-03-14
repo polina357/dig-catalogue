@@ -22,13 +22,20 @@ import { RangesModule } from './components/ranges/ranges.module';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { DataTableComponent } from './components/data-table/data-table.component';
+
+import { StickyDirective } from './shared/sticky.directive';
+import { StickyContainerDirective } from './shared/sticky-container.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DataTableComponent,
+    StickyDirective,
+    StickyContainerDirective
   ],
   imports: [
     BrowserModule,

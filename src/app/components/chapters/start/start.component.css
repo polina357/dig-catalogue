@@ -3,6 +3,11 @@ button {
   margin: 10px;
 }
 
+h3 {
+  position: sticky;
+  top: 2em;
+}
+
 div.container-scroll {
   box-sizing: border-box;
   height: calc(100vh - 4rem);
@@ -10,7 +15,7 @@ div.container-scroll {
 }
 
 div.chapter {
-  padding: 3% 6%;
+  padding: 2% 5%;
 }
 
 div.container {

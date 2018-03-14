@@ -21,6 +21,7 @@ import { SectionResolve, SectionsResolve } from './services/resolvers/section.re
 import { RangeResolve, RangesResolve } from './services/resolvers/range.resolver';
 
 import { AuthGuardService } from './services/auth-guard.service';
+import { DataTableComponent } from './components/data-table/data-table.component';
 
 const appRoutes: Routes = [
   {
@@ -99,6 +100,10 @@ const appRoutes: Routes = [
             component: RangeDetailComponent
           }
         ]
+      },
+      {
+        path: 'table',
+        component: DataTableComponent
       },
       {
         path: '',
