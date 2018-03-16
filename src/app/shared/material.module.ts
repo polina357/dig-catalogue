@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 
 import { MatButtonModule, MatInputModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -26,6 +27,7 @@ const modules = [
   MatFormFieldModule,
   MatInputModule,
   MatTableModule,
+  MatDialogModule,
   RouterModule
 ];
 

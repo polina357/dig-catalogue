@@ -3,6 +3,6 @@
   <pre>{{ range | json }}</pre>
   <h3>Items: </h3>
   <div class="container">
-    <app-card *ngFor="let item of items" [category]="item"></app-card>
+    <app-card *ngFor="let item of items" [category]="item" (click)="openDialog(item)"></app-card>
   </div>
 </div>

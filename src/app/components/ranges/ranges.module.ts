@@ -11,6 +11,7 @@ import { RangeService } from '../../services/range.service';
 import { RangeResolve, RangesResolve } from '../../services/resolvers/range.resolver';
 import { RangeDetailComponent } from './range-detail/range-detail.component';
 import { ItemService } from '../../services/item.service';
+import { DialogComponent } from '../../shared/dialog/dialog.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { ItemService } from '../../services/item.service';
     ItemService
   ],
   entryComponents: [
-    RangeListComponent
+    RangeListComponent,
+    DialogComponent
   ]
 })
 export class RangesModule { }

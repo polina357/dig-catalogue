@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 
 import { StickyDirective } from './shared/sticky.directive';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { StickyDirective } from './shared/sticky.directive';
     LoginComponent,
     HomeComponent,
     DataTableComponent,
-    StickyDirective
+    StickyDirective,
+    DialogComponent
   ],
   imports: [
     BrowserModule,

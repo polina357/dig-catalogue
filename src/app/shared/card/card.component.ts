@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 export class CardComponent implements OnInit {
   @Input() category: any;
   @Input() link: RouterLink;
+  src: string = "https://material.angular.io/assets/img/examples/shiba2.jpg";
 
   constructor() { }
 

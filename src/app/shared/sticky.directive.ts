@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, Output, EventEmitter, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
+import { Directive, HostListener, Input, Output, EventEmitter, ElementRef, AfterViewInit, Renderer2, OnDestroy } from '@angular/core';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 interface Params {
@@ -14,7 +14,7 @@ interface Params {
 @Directive({
   selector: '[appSticky]'
 })
-export class StickyDirective implements AfterViewInit {
+export class StickyDirective implements AfterViewInit, OnDestroy {
   @Input() appSticky: HTMLElement;
   obs$;
 
@@ -103,5 +103,9 @@ export class StickyDirective implements AfterViewInit {
       .setStyle(this.el.nativeElement, 'top', `${this.params.containerHeight - this.params.height}px`);
     this.renderer
       .setStyle(this.el.nativeElement, 'left', `${this.params.offsetLeft}px`);
+  }
+
+  ngOnDestroy() {
+    this.obs$.unsubscribe();
   }
 }

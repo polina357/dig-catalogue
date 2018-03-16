@@ -1,0 +1,32 @@
+.dialog {
+  height: 90vh;
+  width: 50vw;
+}
+
+.mat-toolbar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.mat-icon {
+  font-size: 35px;
+  cursor: pointer;
+  padding: 0.3em;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  width: 50vw;
+  height: 80vh;
+  background-color: rgb(245, 245, 245);
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  cursor: grab;
+  top: 0;
+  left: 0;
+}

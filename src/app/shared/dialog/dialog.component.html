@@ -1,0 +1,9 @@
+<div class="dialog">
+  <mat-toolbar>
+    <mat-icon (click)="zoom(200)">zoom_in</mat-icon>
+    <mat-icon (click)="zoom(-200)">zoom_out</mat-icon>
+  </mat-toolbar>
+  <div class="container">
+    <img [src]="data.image" #image (wheel)="onMouseWheel($event)">
+  </div>
+</div>
