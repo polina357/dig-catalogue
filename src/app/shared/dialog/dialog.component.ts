@@ -18,6 +18,7 @@ export class DialogComponent implements OnInit {
   @ViewChild('image') imageRef: ElementRef;
   img: HTMLImageElement;
   dim: { width: number, height: number };
+  scale: 1;
   container: HTMLElement;
   koef: number;
   initialParams: {
@@ -138,6 +139,7 @@ export class DialogComponent implements OnInit {
         let k2 = y / this.container.offsetHeight;
         shiftX = shift * k1;
         shiftY = (shift / this.koef) * k2;
+        console.log(shiftX, shiftY);
       }
       const dhb = this.container.offsetHeight - (newHeight + top - shiftY);
       const dwb = this.container.offsetWidth - (newWidth + left - shiftX);

@@ -7,7 +7,7 @@
 mat-toolbar {
   height: 4rem;
   z-index: 10;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 mat-toolbar.right-toolbar {
@@ -15,8 +15,8 @@ mat-toolbar.right-toolbar {
   flex-direction: row-reverse;
 }
 
-mat-toolbar.right-toolbar > * {
-  margin-right: 1em;
+.right-toolbar > .mat-icon-button {
+  margin-left: 16px;
 }
 
 button:focus {
@@ -36,7 +36,7 @@ span {
 #left {
   flex-shrink: 0;
   min-width: 18%;
-  box-shadow: inset 0 2px 5px 0 rgba(0,0,0,.3);
+  box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
 #right {

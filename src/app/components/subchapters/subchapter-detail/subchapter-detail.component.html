@@ -3,6 +3,6 @@
   <pre>{{ subchapter | json }}</pre>
   <h3>Sections: </h3>
   <div class="container">
-    <app-card *ngFor="let section of sections" [link]="['/sections', section.id]" [category]="section"></app-card>
+    <app-card *ngFor="let section of sections" [routerLink]="['/sections', section.id]" [category]="section"></app-card>
   </div>
 </div>

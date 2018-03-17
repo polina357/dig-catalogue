@@ -3,6 +3,6 @@
   <pre>{{ section | json }}</pre>
   <h3>Ranges: </h3>
   <div class="container">
-    <app-card *ngFor="let range of ranges" [link]="['/ranges', range.id]" [category]="range"></app-card>
+    <app-card *ngFor="let range of ranges" [routerLink]="['/ranges', range.id]" [category]="range"></app-card>
   </div>
 </div>
