@@ -9,11 +9,20 @@ import {
 
 import { MAT_DIALOG_DATA } from "@angular/material";
 
-export interface imgParams {
+interface ImgParams {
   width?: number;
   height?: number;
   top: number;
   left: number;
+}
+
+interface CheckParams {
+  newWidth: number;
+  newHeight: number;
+  imgPosX: number;
+  imgPosY: number;
+  maxOffsetX: number;
+  maxOffsetY: number;
 }
 
 @Component({
@@ -26,9 +35,7 @@ export class DialogComponent implements OnInit {
 
   img: HTMLImageElement;
   dim: { width: number; height: number };
-  initialZoom = 1;
   zoomChange = 0.1;
-  previousEvent: any;
   container: HTMLElement;
   koef: number;
   initialParams: {
@@ -156,6 +163,24 @@ export class DialogComponent implements OnInit {
       x = this.container.offsetWidth / 2;
       y = this.container.offsetHeight / 2;
     }
+    let params = this.getParams(x, y, shift);
+    if (
+      params.newWidth > this.container.offsetWidth ||
+      params.newHeight > this.container.offsetHeight
+    ) {
+      params = this.checkPosition(params);
+      this.setImage({
+        width: params.newWidth,
+        height: params.newHeight,
+        top: params.imgPosY,
+        left: params.imgPosX
+      });
+    } else {
+      this.setImage(this.initialParams);
+    }
+  }
+
+  getParams(x: number, y: number, shift: number) {
     let imgCursorX = x - this.img.offsetLeft,
       imgCursorY = y - this.img.offsetTop,
       imgRX = imgCursorX / this.img.offsetWidth,
@@ -167,45 +192,44 @@ export class DialogComponent implements OnInit {
     if (shift > 0) {
       newWidth = this.img.offsetWidth + this.img.offsetWidth * this.zoomChange;
       maxOffsetY = this.initialParams.top * 2;
-      maxOffsetX = this.initialParams.top * 2;
+      maxOffsetX = this.initialParams.left * 2;
     } else {
       newWidth = this.img.offsetWidth - this.img.offsetWidth * this.zoomChange;
       maxOffsetY = this.initialParams.top;
-      maxOffsetX = this.initialParams.top;
+      maxOffsetX = this.initialParams.left;
     }
 
     const newHeight = newWidth / this.koef;
 
     let imgPosX = x - newWidth * imgRX,
       imgPosY = y - newHeight * imgRY;
-    if (
-      newWidth > this.container.offsetWidth ||
-      newHeight > this.container.offsetHeight
-    ) {
-      const dhb = this.container.offsetHeight - (newHeight + imgPosY);
-      const dwb = this.container.offsetWidth - (newWidth + imgPosX);
-      if (dhb > 0 && dhb > maxOffsetY) imgPosY += dhb;
-      if (dwb > 0 && dwb > maxOffsetX) imgPosX += dwb;
 
-      if (imgPosY > 0 && imgPosY > maxOffsetY) imgPosY = 0;
-      if (imgPosX > 0 && imgPosX > maxOffsetX) imgPosX = 0;
-
-      this.setImage({
-        width: newWidth,
-        height: newHeight,
-        top: imgPosY,
-        left: imgPosX
-      });
-    } else {
-      this.setImage(this.initialParams);
-    }
+    return {
+      newWidth: newWidth,
+      newHeight: newHeight,
+      imgPosX: imgPosX,
+      imgPosY: imgPosY,
+      maxOffsetX: maxOffsetX,
+      maxOffsetY: maxOffsetY
+    };
   }
 
-  checkPosition(newHeight, imgPosX, imgPosY) {
+  checkPosition(params: CheckParams) {
+    const dhb =
+      this.container.offsetHeight - (params.newHeight + params.imgPosY);
+    const dwb = this.container.offsetWidth - (params.newWidth + params.imgPosX);
+    if (dhb > 0 && dhb > params.maxOffsetY) params.imgPosY += dhb;
+    if (dwb > 0 && dwb > params.maxOffsetX) params.imgPosX += dwb;
 
+    if (params.imgPosY > 0 && params.imgPosY > params.maxOffsetY)
+      params.imgPosY = 0;
+    if (params.imgPosX > 0 && params.imgPosX > params.maxOffsetX)
+      params.imgPosX = 0;
+
+    return params;
   }
 
-  setImage(imgParams: imgParams) {
+  setImage(imgParams: ImgParams) {
     if (imgParams.width)
       this.renderer.setStyle(this.img, "width", `${imgParams.width}px`);
     if (imgParams.height)
