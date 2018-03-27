@@ -16,10 +16,8 @@ export class LoaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.router.events.subscribe(event => {
       if (event instanceof ResolveStart) {
-        console.log('resolve start');
         this.displayStyle = 'block';
       } else if (event instanceof ResolveEnd) {
-        console.log('resolve end');
         this.displayStyle = 'none';
       }
     });

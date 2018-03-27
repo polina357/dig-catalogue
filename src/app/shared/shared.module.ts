@@ -6,6 +6,7 @@ import { SidebarModule } from './sidebar/sidebar.module';
 import { DialogComponent } from './dialog/dialog.component';
 import { LoaderComponent } from './loader/loader.component';
 import { StickyDirective } from './sticky.directive';
+import { ZoomDirective } from './zoom.directive';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { StickyDirective } from './sticky.directive';
   declarations: [
     DialogComponent,
     LoaderComponent,
-    StickyDirective
+    StickyDirective,
+    ZoomDirective
   ]
 })
 export class SharedModule { }
